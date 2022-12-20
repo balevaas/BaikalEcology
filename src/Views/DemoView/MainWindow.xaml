@@ -1,0 +1,18 @@
+﻿<Window x:Class="DemoView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemoView"
+        xmlns:vm="clr-namespace:_DemoViewModel;assembly=_DemoViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+    <StackPanel>
+        <TextBox Text="{Binding NewName, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <Button Command="{Binding NewUserCommandAsync}">NEW</Button>
+        <DataGrid ItemsSource="{Binding Users, UpdateSourceTrigger=PropertyChanged}"/>
+    </StackPanel>
+</Window>
