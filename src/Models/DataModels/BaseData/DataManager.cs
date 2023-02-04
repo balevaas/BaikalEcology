@@ -14,12 +14,14 @@ namespace BaseData
     {
         public IUserRep UserRep { get; }
         public IPolutionRep PolutionRep { get; }
+        public IPointRep PointRep { get; }
         public IPolutionSetRep PolutionSetRep { get; }
 
-        private DataManager(IUserRep userRep, IPolutionRep polutionRep, IPolutionSetRep polutionSetRep)
+        private DataManager(IUserRep userRep, IPolutionRep polutionRep, IPointRep pointRep, IPolutionSetRep polutionSetRep)
         {
             UserRep = userRep;
             PolutionRep = polutionRep;
+            PointRep = pointRep;
             PolutionSetRep = polutionSetRep;
         }
 
@@ -39,6 +41,7 @@ namespace BaseData
                     (
                         new UserRep(context),
                         new PolutionRep(context),
+                        new PointRep(context),
                         new PolutionSetRep(context)
                     );
 

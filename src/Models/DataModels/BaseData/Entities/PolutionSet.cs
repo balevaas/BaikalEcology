@@ -12,10 +12,10 @@ namespace BaseData.Entities
         public User? User { get; set; }
         public Guid? PolutionId { get; set; }
         public Polution? Polution { get; set; }
-        public double? Latitude { get; set; }
-        public double? Longitude { get; set; }
         public DateTime? Date { get; set; }
         public double Quantity { get; set; }
-
+        public Guid PointId { get; set; }
+        public Point Point { get; set; } = null!;
+        public double? WindRose { get; set; }
     }
 }

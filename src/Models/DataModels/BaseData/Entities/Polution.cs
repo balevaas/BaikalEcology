@@ -12,6 +12,6 @@ namespace BaseData.Entities
 
         public string Unit { get; set; } = "мг/м2";
 
-        public string? Unit2 { get; set; }
+        public double Quantity { get; set; }
     }
 }

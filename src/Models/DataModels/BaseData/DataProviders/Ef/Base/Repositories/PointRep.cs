@@ -1,28 +1,28 @@
 ﻿using BaseData.Entities;
 using BaseData.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
 namespace BaseData.DataProviders.Ef.Base.Repositories
 {
-    public class PolutionSetRep : IPolutionSetRep
+    public class PointRep : IPointRep
     {
         private readonly DataContext Context;
 
-        public PolutionSetRep(DataContext context)
+        public PointRep(DataContext context)
         {
             Context = context;
         }
 
-        public IQueryable<PolutionSet> Items => Context.PolutionSets;
+        public IQueryable<Point> Items => Context.Points;
 
-        public async Task<int> DeleteAsync(PolutionSet item)
+        public async Task<int> DeleteAsync(Point item)
         {
-            if(Items.Contains(item))
+            if (Items.Contains(item))
             {
                 Context.Remove(item);
                 return await Context.SaveChangesAsync();
@@ -30,14 +30,13 @@ namespace BaseData.DataProviders.Ef.Base.Repositories
             return 0;
         }
 
-        public async Task<PolutionSet> GetItemByIdAsync(Guid id)
+        public async Task<Point> GetItemByIdAsync(Guid id)
         {
             return await Items.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task<int> UpdateAsync(PolutionSet item)
+        public async Task<int> UpdateAsync(Point item)
         {
-            item.WindRose = WindRoseHandler.GetCheckGrad(item.WindRose);
             var rec = await Items.FirstOrDefaultAsync(x => x.Id == item.Id);
             if (rec != default) Context.Update(item);
             else await Context.AddAsync(item);
