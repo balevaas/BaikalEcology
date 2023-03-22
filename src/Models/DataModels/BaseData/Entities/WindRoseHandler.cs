@@ -9,6 +9,17 @@ namespace BaseData.Entities
     public static class WindRoseHandler
     {
         public const double Unit = 22.5;
+
+        // Роза ветров ???
+        public double WindDirection {  get; set; }
+        public double WindSpeed { get; set; }
+        public double Temperature { get; set; }
+        public double Humidity { get; set; }
+        public double Pressure { get; set; }
+        public double SnowHeight {  get; set; }
+
+
+
         public static double? GradToRadian(double? grad) => grad == null ? null : GetCheckGrad(grad) * (Math.PI / 180);
         public static double RadianToGrad(double rad) => Math.Round(rad * (180 / Math.PI), 1);
         
