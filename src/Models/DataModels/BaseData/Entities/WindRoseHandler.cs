@@ -11,12 +11,12 @@ namespace BaseData.Entities
         public const double Unit = 22.5;
 
         // Роза ветров ???
-        public double WindDirection {  get; set; }
-        public double WindSpeed { get; set; }
-        public double Temperature { get; set; }
-        public double Humidity { get; set; }
-        public double Pressure { get; set; }
-        public double SnowHeight {  get; set; }
+        public double WindDirection {  get; set; } // направление ветра
+        public double WindSpeed { get; set; } // скорость ветра
+        public double Temperature { get; set; } // температура
+        public int Humidity { get; set; } // влажность (проценты)
+        public double Pressure { get; set; } // давление
+        public double SnowHeight {  get; set; } // высота снежного покрова
 
 
 
