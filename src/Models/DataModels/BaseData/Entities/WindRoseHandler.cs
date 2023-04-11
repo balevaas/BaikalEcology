@@ -10,7 +10,7 @@ namespace BaseData.Entities
     {
         public const double Unit = 22.5;
 
-        // Роза ветров ???
+        // Роза ветров
         public double WindDirection {  get; set; } // направление ветра
         public double WindSpeed { get; set; } // скорость ветра
         public double Temperature { get; set; } // температура
