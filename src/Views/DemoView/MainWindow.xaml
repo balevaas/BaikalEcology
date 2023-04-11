@@ -6,13 +6,119 @@
         xmlns:local="clr-namespace:DemoView"
         xmlns:vm="clr-namespace:_DemoViewModel;assembly=_DemoViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Экология Байкальского региона" Height="600" Width="900">
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
-    <StackPanel>
+
+    <Window.Background>
+        <ImageBrush ImageSource="C:\Users\Anastasia\Desktop\image.jpg" Opacity="0.8"/>
+    </Window.Background>
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0"
+                Style="{StaticResource Button}"
+                Click="button1_Click"  Name="button1" >
+            <Button.Content>
+                <TextBlock Style="{StaticResource TextBlock}" 
+                           Text="Анализ спектральных характеристик земной поверхности"/>
+            </Button.Content>
+        </Button>
+        <Button Grid.Row="1"
+                Style="{StaticResource Button}" 
+                Click="button2_Click" x:Name="button2" >
+            <Button.Content>
+                <TextBlock Style="{StaticResource TextBlock}"
+                           Text="Анализ метеорологической информации"/>
+            </Button.Content>
+        </Button>
+        <Button Grid.Row="2"
+                Style="{StaticResource Button}" 
+                Click="button3_Click" x:Name="button3">
+            <Button.Content>
+                <TextBlock Style="{StaticResource TextBlock}"
+                           Text="Оценка загрязнения территорий, находящихся в зоне влияния крупного промышленного города"/>
+            </Button.Content>
+        </Button>
+        <Button Grid.Row="3"
+                Style="{StaticResource Button}"
+                x:Name="button4" Click="button4_Click">
+            <Button.Content>
+                <TextBlock Style="{StaticResource TextBlock}"
+                           Text="Расчет и визуализация полей концентрации бенз(а)пирена в атмосферном воздухе"/>
+            </Button.Content>
+        </Button>
+        <Button Grid.Column="1" Grid.Row="0"
+                Style="{StaticResource Button}"
+                x:Name="button5" Click="button5_Click">
+            <Button.Content>
+                <TextBlock Style="{StaticResource TextBlock}"
+                           Text="Построение полей концентрации загрязняющих примесей на территории городов"/>
+            </Button.Content>
+        </Button>
+        <Button Grid.Column="1" Grid.Row="1"
+                Style="{StaticResource Button}"
+                x:Name="button6" Click="button6_Click">
+            <Button.Content>
+                <TextBlock Style="{StaticResource TextBlock}"
+                           Text="Расчет и визуализация полей ртутного загрязнения"/>
+            </Button.Content>    
+        </Button>
+        <Button Grid.Column="1" Grid.Row="2"
+                Style="{StaticResource Button}"
+                x:Name="button7" Click="button7_Click">
+            <Button.Content>
+                <TextBlock Style="{StaticResource TextBlock}"
+                           Text="Получение корреляционных зависимостей между уровнями техногенного загрязнения и спектральными характеристиками"/>
+            </Button.Content>
+        </Button>
+        <Button Grid.Column="1" Grid.Row="3"
+                Style="{StaticResource Button}"
+                x:Name="button8" Click="button8_Click">
+            <Button.Content>
+                <TextBlock Style="{StaticResource TextBlock}"
+                           Text="Выявление корреляционных зависимостей между бенз(а)пиреном и ветровым режимом"/>
+            </Button.Content>
+        </Button>
+    </Grid>
+    <!--<StackPanel>
+        <StackPanel Margin="25" Height="530" >
+            <Button
+                Style="{StaticResource Button}"
+                Click="button1_Click"  Name="button1" >
+                <Button.Content>
+                    <TextBlock Style="{StaticResource TextBlock}" 
+                               Text="Анализ спектральных характеристик земной поверхности"/>
+                </Button.Content>
+            </Button>
+            <Button Style="{StaticResource Button}" 
+                    Click="button2_Click" x:Name="button2" >
+                <Button.Content>
+                    <TextBlock Style="{StaticResource TextBlock}"
+                               Text="Анализ метеорологической информации"/>
+                </Button.Content>
+            </Button>
+            <Button Style="{StaticResource Button}" 
+                    Click="button3_Click" x:Name="button3">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource TextBlock}"
+                               Text="Оценка загрязнения территорий, находящихся в зоне влияния крупного промышленного города"/>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+    </StackPanel>-->
+    <!--<StackPanel>
         <TextBox Text="{Binding NewName, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         <Button Command="{Binding NewUserCommandAsync}">NEW</Button>
         <DataGrid ItemsSource="{Binding Users, UpdateSourceTrigger=PropertyChanged}"/>
-    </StackPanel>
+    </StackPanel>-->
 </Window>
