@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BaseData.Entities
 {
-    public static class WindRoseHandler
+    public class WindRoseHandler
     {
         public const double Unit = 22.5;
 
