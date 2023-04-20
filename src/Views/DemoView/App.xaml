@@ -4,24 +4,20 @@
              xmlns:local="clr-namespace:DemoView"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        
+
         <!--Стиль кнопки-->
+
         <Style x:Key="Button" TargetType="Button">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
-            <Setter Property="Margin" Value="2"/>
-            <Setter Property="FontFamily" Value="Sitka Banner"/>
             <Setter Property="FontSize" Value="20"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Height" Value="120"/>
-            <Setter Property="Width" Value="350"/>
-            <Setter Property="Opacity" Value="0.6"/>
-            <Setter Property="Background" Value="#ffffff"/>
-
+            <Setter Property="Opacity" Value="0.7"/>
+            <Setter Property="Background" Value="#e6dfd7"/>
+            <Setter Property="Padding" Value="20,0,20,0"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border CornerRadius="10"
-                            Background="#ffffff"
+                            Background="#e6dfd7"
                             BorderThickness="1">
                             <ContentPresenter
                             HorizontalAlignment="Center"
@@ -34,24 +30,34 @@
 
             <Style.Triggers>
                 <Trigger Property="Control.IsFocused" Value="True">
-                    <Setter Property="Control.Foreground" Value="Black" />
+                    <Setter Property="Control.Foreground" Value="#26463d" />
                 </Trigger>
                 <Trigger Property="Control.IsMouseOver" Value="True">
                     <Setter Property="Control.Foreground" Value="Gray" />
                     <Setter Property="Control.FontWeight" Value="Bold" />
                 </Trigger>
                 <Trigger Property="Button.IsPressed" Value="True">
-                    <Setter Property="Control.Foreground" Value="Black" />
+                    <Setter Property="Control.Foreground" Value="#26463d" />
                 </Trigger>
             </Style.Triggers>
         </Style>
 
-        <!--Стиль текста внутри кнопки-->
+        <!--Стиль текста-->
         <Style x:Key="TextBlock" TargetType="TextBlock">
             <Setter Property="TextWrapping" Value="Wrap"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Sitka Banner"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <Style x:Key="Border" TargetType="Border">
+            <Setter Property="Background" Value="#6fa2d1"/>
+            <Setter Property="Opacity" Value="0.7"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="Padding" Value="20,0,20,0"/>
         </Style>
     </Application.Resources>
 </Application>

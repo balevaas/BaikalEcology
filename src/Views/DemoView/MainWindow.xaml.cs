@@ -25,42 +25,42 @@ namespace DemoView
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void button2_Click(object sender, RoutedEventArgs e)
+        private void windRoseBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void button3_Click(object sender, RoutedEventArgs e)
+        private void benzopyreneBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void button4_Click(object sender, RoutedEventArgs e)
+        private void mercuryBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void button5_Click(object sender, RoutedEventArgs e)
+        private void dustBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void button6_Click(object sender, RoutedEventArgs e)
+        private void impuritiesBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void button7_Click(object sender, RoutedEventArgs e)
+        private void correlationBtn1_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void button8_Click(object sender, RoutedEventArgs e)
+        private void minimaxBtn1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void correlation2Btn1_Click(object sender, RoutedEventArgs e)
         {
 
         }

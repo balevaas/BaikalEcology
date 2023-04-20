@@ -6,119 +6,304 @@
         xmlns:local="clr-namespace:DemoView"
         xmlns:vm="clr-namespace:_DemoViewModel;assembly=_DemoViewModel"
         mc:Ignorable="d"
-        Title="Экология Байкальского региона" Height="600" Width="900">
+        Title="Экология Байкальского региона" d:DesignHeight="1080" d:DesignWidth="1920" WindowStartupLocation="CenterScreen" WindowState="Maximized" ShowInTaskbar="False" ResizeMode="CanMinimize">
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
-
     <Window.Background>
-        <ImageBrush ImageSource="C:\Users\Anastasia\Desktop\image.jpg" Opacity="0.8"/>
+        <ImageBrush ImageSource="C:\Users\Anastasia\Desktop\image2.jpg" Opacity="0.6"/>
     </Window.Background>
-    <Grid Margin="20">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Button Grid.Row="0"
-                Style="{StaticResource Button}"
-                Click="button1_Click"  Name="button1" >
-            <Button.Content>
-                <TextBlock Style="{StaticResource TextBlock}" 
-                           Text="Анализ спектральных характеристик земной поверхности"/>
-            </Button.Content>
-        </Button>
-        <Button Grid.Row="1"
-                Style="{StaticResource Button}" 
-                Click="button2_Click" x:Name="button2" >
-            <Button.Content>
+    <Grid Margin="0,20,0,0">
+        <TextBlock Style="{StaticResource TextBlock}" FontSize="50" 
+                   VerticalAlignment="Top" HorizontalAlignment="Center"
+                   Foreground="#e6dfd7">
+            Информационно-аналитическая система «Экология Байкальского региона»
+        </TextBlock>
+
+        <Grid Margin="0,80,0,0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!--Первая строка-->
+
+            <Button Style="{StaticResource Button}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                    x:Name="windRoseBtn" Click="windRoseBtn_Click"
+                    Margin="130,30">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource TextBlock}"
+                               FontSize="25">
+                        Архив <LineBreak/> метеорологической <LineBreak/> информации
+                    </TextBlock>
+                </Button.Content>
+            </Button>
+
+            <Border Grid.Row="0"
+                    Grid.Column="1" Grid.ColumnSpan="3" 
+                    Style="{StaticResource Border}"
+                    VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock Style="{StaticResource TextBlock}"
-                           Text="Анализ метеорологической информации"/>
-            </Button.Content>
-        </Button>
-        <Button Grid.Row="2"
-                Style="{StaticResource Button}" 
-                Click="button3_Click" x:Name="button3">
-            <Button.Content>
-                <TextBlock Style="{StaticResource TextBlock}"
-                           Text="Оценка загрязнения территорий, находящихся в зоне влияния крупного промышленного города"/>
-            </Button.Content>
-        </Button>
-        <Button Grid.Row="3"
-                Style="{StaticResource Button}"
-                x:Name="button4" Click="button4_Click">
-            <Button.Content>
-                <TextBlock Style="{StaticResource TextBlock}"
-                           Text="Расчет и визуализация полей концентрации бенз(а)пирена в атмосферном воздухе"/>
-            </Button.Content>
-        </Button>
-        <Button Grid.Column="1" Grid.Row="0"
-                Style="{StaticResource Button}"
-                x:Name="button5" Click="button5_Click">
-            <Button.Content>
-                <TextBlock Style="{StaticResource TextBlock}"
-                           Text="Построение полей концентрации загрязняющих примесей на территории городов"/>
-            </Button.Content>
-        </Button>
-        <Button Grid.Column="1" Grid.Row="1"
-                Style="{StaticResource Button}"
-                x:Name="button6" Click="button6_Click">
-            <Button.Content>
-                <TextBlock Style="{StaticResource TextBlock}"
-                           Text="Расчет и визуализация полей ртутного загрязнения"/>
-            </Button.Content>    
-        </Button>
-        <Button Grid.Column="1" Grid.Row="2"
-                Style="{StaticResource Button}"
-                x:Name="button7" Click="button7_Click">
-            <Button.Content>
-                <TextBlock Style="{StaticResource TextBlock}"
-                           Text="Получение корреляционных зависимостей между уровнями техногенного загрязнения и спектральными характеристиками"/>
-            </Button.Content>
-        </Button>
-        <Button Grid.Column="1" Grid.Row="3"
-                Style="{StaticResource Button}"
-                x:Name="button8" Click="button8_Click">
-            <Button.Content>
-                <TextBlock Style="{StaticResource TextBlock}"
-                           Text="Выявление корреляционных зависимостей между бенз(а)пиреном и ветровым режимом"/>
-            </Button.Content>
-        </Button>
+                           FontSize="40" Foreground="Black">
+                    Оценка техногенного загрязнения территорий по данным <LineBreak/> мониторинговых исследований
+                </TextBlock>
+            </Border>
+            
+            <!--Вторая строка-->
+
+            <TextBlock Style="{StaticResource TextBlock}" FontSize="30"
+                       Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Foreground="#e6dfd7">
+                По данным наземных систем мониторинга
+            </TextBlock>
+
+            <TextBlock Style="{StaticResource TextBlock}" FontSize="30"
+                       Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Foreground="#e6dfd7">
+                С использованием мультиспектральных космоснимков <LineBreak/> выского разрешения
+            </TextBlock>
+            
+            <!--Третья строка-->
+
+            <Button Style="{StaticResource Button}" 
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center"
+                    Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                    x:Name="benzopyreneBtn" Click="benzopyreneBtn_Click"
+                    Margin="30"
+                    Width="{Binding ElementName=correlation2Btn1, Path=ActualWidth}"
+                    Height="{Binding ElementName=correlation2Btn1, Path=ActualHeight}">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource TextBlock}"
+                               FontSize="25">
+                        Расчет и визуализация полей концентрации бенз(а)пирена в атмосферном воздухе городов по данным сетевых измерений
+                    </TextBlock>
+                </Button.Content>
+            </Button>
+
+            <Button Style="{StaticResource Button}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"
+                    x:Name="dustBtn" Click="dustBtn_Click"
+                    Width="{Binding ElementName=correlation2Btn1, Path=ActualWidth}"
+                    Height="{Binding ElementName=correlation2Btn1, Path=ActualHeight}">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource TextBlock}"
+                               FontSize="25">
+                        Оценка пылевого загрязнения местности по данным мультиспектральных космоснимков высокого разрешения
+                    </TextBlock>
+                </Button.Content>
+    
+            </Button>
+
+            <!--Четвертая строка-->
+
+            <Button Style="{StaticResource Button}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                    x:Name="mercuryBtn" Click="mercuryBtn_Click"
+                    Margin="15" 
+                    Width="{Binding ElementName=correlation2Btn1, Path=ActualWidth}"
+                    Height="{Binding ElementName=correlation2Btn1, Path=ActualHeight}">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource TextBlock}"
+                               FontSize="25">
+                        Расчет и визуализация полей ртутного загрязнения по данным биомониторинга на территориях городов
+                    </TextBlock>
+                </Button.Content>
+            </Button>
+
+            <TextBlock Style="{StaticResource TextBlock}" FontSize="30"
+                       Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="3"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Foreground="#e6dfd7">
+                Статистический анализ результатов численных и <LineBreak/> мониторинговых исследований
+            </TextBlock>
+            
+            <!--Пятая строка-->
+
+            <Button Style="{StaticResource Button}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+                    x:Name="impuritiesBtn" Click="impuritiesBtn_Click"
+                    Margin="15" 
+                    Width="{Binding ElementName=correlation2Btn1, Path=ActualWidth}"
+                    Height="{Binding ElementName=correlation2Btn1, Path=ActualHeight}">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource TextBlock}"
+                               FontSize="25">
+                        Оценка загрязнения территорий в зоне влияния промышленного города с использованием модели распространения примеси от площадного источника
+                    </TextBlock>
+                </Button.Content>
+            </Button>
+
+            <Button Style="{StaticResource Button}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"
+                    x:Name="correlation1Btn1" Click="correlationBtn1_Click"
+                    Margin="15" 
+                    Width="{Binding ElementName=correlation2Btn1, Path=ActualWidth}"
+                    Height="{Binding ElementName=correlation2Btn1, Path=ActualHeight}">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource TextBlock}"
+                               FontSize="25">
+                        Выявление корреляционных зависимостей между измерениями бенз(а)пирена в атмосферном воздухе городов и характеристиками ветрового режима
+                    </TextBlock>
+                </Button.Content>
+            </Button>
+            
+            <!--Шестая строка-->
+
+            <Button Style="{StaticResource Button}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                    x:Name="minimaxBtn1" Click="minimaxBtn1_Click"
+                    Margin="15" 
+                    Width="{Binding ElementName=correlation2Btn1, Path=ActualWidth}"
+                    Height="{Binding ElementName=correlation2Btn1, Path=ActualHeight}">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource TextBlock}"
+                               FontSize="25">
+                        Расчет выпадений загрязняющих примесей на территориях городов с использованием минимаксных моделей оценивания параметров эмиссии точечных и площадных источников
+                    </TextBlock>
+                </Button.Content>
+            </Button>
+
+            <Button Style="{StaticResource Button}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2"
+                    Name="correlation2Btn1" Click="correlation2Btn1_Click"
+                    Margin="15">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource TextBlock}"
+                               FontSize="25">
+                        Получение корреляционных зависимостей между уровнями <LineBreak/> рассчитанного техногенного регионального загрязнения и  <LineBreak/> спектральными характеристиками  в точках местности с <LineBreak/> использованием наземных и спутниковых измерений
+                    </TextBlock>
+                </Button.Content>
+            </Button>
+
+            <!--Текст в фоне--><!--
+            <Border Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0"
+                    VerticalAlignment="Center" HorizontalAlignment="Left"
+                    Style="{StaticResource Border}" Margin="30">
+                <TextBlock Style="{StaticResource TextBlock}" FontSize="40" 
+                           Foreground="Black">
+                    Оценка техногенного загрязения территорий по данным <LineBreak/>  мониторинговых исследований
+                </TextBlock>
+            </Border>
+
+            --><!--Текст для расчета и визуализации--><!--
+            <TextBlock Grid.Column="1" Grid.Row="2"
+                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Style="{StaticResource TextBlock}" FontSize="30" 
+                        Margin="30,30,0,0">
+                   По данным наземных систем мониторинга
+            </TextBlock>
+
+            --><!--Текст для мультиспектральных космоснимков--><!--
+            <TextBlock Grid.Column="2" Grid.Row="2"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Style="{StaticResource TextBlock}" FontSize="30" 
+                       Foreground="#e6dfd7" Margin="0,30,30,0">
+                       С использованием мультиспектральных  космоснимков высокого разрешения
+            </TextBlock>
+
+
+            --><!--Текст для анализа--><!--
+            <TextBlock Grid.Column="2" Grid.Row="4"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Style="{StaticResource TextBlock}" FontSize="30" 
+                       Foreground="#e6dfd7" Margin="0,30,30,0">
+                       Статистический анализ результатов численных и мониторинговых исследований
+            </TextBlock>
+
+            --><!--Кнопка архива метеорологической информации--><!--
+            
+            <Button Grid.Row="0"
+                    Style="{StaticResource Button}" 
+                    Click="button1_Click" x:Name="button1" 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Margin="30">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource TextBlock}"
+                               FontSize="25">
+                        Архив <LineBreak/> метеорологической <LineBreak/> информации
+                    </TextBlock>
+                </Button.Content>
+            </Button>
+
+            --><!--Кнопка бенз(а)пирен--><!--
+            <Button Grid.Row="3" Grid.Column="1" 
+                    Style="{StaticResource Button}" 
+                    Click="button2_Click" x:Name="button2" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource TextBlock}"
+                               FontSize="25">
+                        Расчет и визуализация полей концентрации <LineBreak/> бенз(а)пирена в атмосферном воздухе <LineBreak/>  городов по данным сетевых измерений
+                    </TextBlock>
+                </Button.Content>
+            </Button>
+
+            --><!--Кнопка ртуть--><!--
+            <Button Grid.Row="4" Grid.Column="1" Style="{StaticResource Button}" 
+                    Click="button4_Click" x:Name="button3" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource TextBlock}"
+                               FontSize="25">
+                        Расчет и визуализация полей <LineBreak/> ртутного загрязнения по данным <LineBreak/>  биомониторинга на территориях городов
+                    </TextBlock>
+                </Button.Content>
+            </Button>
+            
+            --><!--Кнопка космоснимки--><!--
+            <Button Grid.Row="5" Grid.Column="1" Style="{StaticResource Button}" 
+                    Click="button3_Click" x:Name="button4" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource TextBlock}"
+                               FontSize="25">
+                        Оценка загрязнения территорий <LineBreak/> в зоне влияния промышленного  <LineBreak/> города с использованием модели распространения <LineBreak/> примеси от площадного источника
+                    </TextBlock>
+                </Button.Content>
+            </Button>
+
+            --><!--Кнопка космоснимки--><!--
+            <Button Grid.Row="3" Grid.Column="2" Style="{StaticResource Button}" 
+                    Click="button3_Click" x:Name="button7" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource TextBlock}"
+                               FontSize="25">
+                        Оценка загрязнения территорий в зоне влияния промышленного города с использованием модели распространения примеси от площадного источника
+                    </TextBlock>
+                </Button.Content>
+            </Button>-->
+            
+            
+
+        </Grid>
     </Grid>
-    <!--<StackPanel>
-        <StackPanel Margin="25" Height="530" >
-            <Button
-                Style="{StaticResource Button}"
-                Click="button1_Click"  Name="button1" >
-                <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}" 
-                               Text="Анализ спектральных характеристик земной поверхности"/>
-                </Button.Content>
-            </Button>
-            <Button Style="{StaticResource Button}" 
-                    Click="button2_Click" x:Name="button2" >
-                <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}"
-                               Text="Анализ метеорологической информации"/>
-                </Button.Content>
-            </Button>
-            <Button Style="{StaticResource Button}" 
-                    Click="button3_Click" x:Name="button3">
-                <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}"
-                               Text="Оценка загрязнения территорий, находящихся в зоне влияния крупного промышленного города"/>
-                </Button.Content>
-            </Button>
-        </StackPanel>
-    </StackPanel>-->
-    <!--<StackPanel>
-        <TextBox Text="{Binding NewName, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        <Button Command="{Binding NewUserCommandAsync}">NEW</Button>
-        <DataGrid ItemsSource="{Binding Users, UpdateSourceTrigger=PropertyChanged}"/>
-    </StackPanel>-->
 </Window>
