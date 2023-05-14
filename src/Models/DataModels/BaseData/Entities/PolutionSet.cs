@@ -16,6 +16,7 @@ namespace BaseData.Entities
         public double Quantity { get; set; }
         public Guid PointId { get; set; }
         public Point Point { get; set; } = null!;
-        public double? WindRose { get; set; }
+        public Guid? WindRoseId { get; set; }
+        public WindRoseHandler? WindRose { get; set; }
     }
 }
