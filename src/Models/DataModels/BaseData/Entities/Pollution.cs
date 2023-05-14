@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BaseData.Entities
 {
-    public class Polution : EntityBase
+    public class Pollution : EntityBase
     {
         public string Name { get; set; } = null!;
 

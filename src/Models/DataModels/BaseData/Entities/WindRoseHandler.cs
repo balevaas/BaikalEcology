@@ -10,13 +10,16 @@ namespace BaseData.Entities
     {
         public const double Unit = 22.5;
 
+        public Guid? UserId { get; set; }
+        public User? User { get; set; }
+
         // Роза ветров
-        public double WindDirection {  get; set; } // направление ветра
-        public double WindSpeed { get; set; } // скорость ветра
-        public double Temperature { get; set; } // температура
-        public int Humidity { get; set; } // влажность (проценты)
-        public double Pressure { get; set; } // давление
-        public double SnowHeight {  get; set; } // высота снежного покрова
+        public double? WindDirection {  get; set; } // направление ветра
+        public double? WindSpeed { get; set; } // скорость ветра
+        public double? Temperature { get; set; } // температура
+        public int? Humidity { get; set; } // влажность (проценты)
+        public double? Pressure { get; set; } // давление
+        public double? SnowHeight {  get; set; } // высота снежного покрова
 
 
 

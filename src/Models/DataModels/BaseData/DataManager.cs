@@ -13,16 +13,17 @@ namespace BaseData
     public class DataManager
     {
         public IUserRep UserRep { get; }
-        public IPolutionRep PolutionRep { get; }
+        public IPollutionRep PolutionRep { get; }
         public IPointRep PointRep { get; }
-        public IPolutionSetRep PolutionSetRep { get; }
+        public IPollutionSetRep PolutionSetRep { get; }
+        public IWindRoseRep WindRoseRep { get; }
 
-        private DataManager(IUserRep userRep, IPolutionRep polutionRep, IPointRep pointRep, IPolutionSetRep polutionSetRep)
+        private DataManager(IUserRep userRep, IPollutionRep pollutionRep, IPointRep pointRep, IPollutionSetRep pollutionSetRep)
         {
             UserRep = userRep;
-            PolutionRep = polutionRep;
+            PollutionRep = pollutionRep;
             PointRep = pointRep;
-            PolutionSetRep = polutionSetRep;
+            PollutionSetRep = pollutionSetRep;
         }
 
         public static DataManager Get(DataProvider dataProvider)
@@ -40,9 +41,9 @@ namespace BaseData
                     return new DataManager
                     (
                         new UserRep(context),
-                        new PolutionRep(context),
+                        new PollutionRep(context),
                         new PointRep(context),
-                        new PolutionSetRep(context)
+                        new PollutionSetRep(context)
                     );
 
                 case DataProvider.SqlServer:
