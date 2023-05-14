@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="BaseData.DataProviders.Ef.Base.Repositories.PointRep" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAACAAAAAAAAAAAAAAABAgAAAAAAAAAAIA=</HashCode>
+      <FileName>DataProviders\Ef\Base\Repositories\PointRep.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BaseData.DataProviders.Ef.Base.Repositories.PollutionRep" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAACAAAAAAAAAAAAAAABAgAAAAAAAAAAIA=</HashCode>
+      <FileName>DataProviders\Ef\Base\Repositories\PollutionRep.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BaseData.DataProviders.Ef.Base.Repositories.PollutionSetRep" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAACAAAAAAAAAAAAAAABAgAAAAAAAAAAIA=</HashCode>
+      <FileName>DataProviders\Ef\Base\Repositories\PollutionSetRep.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BaseData.DataProviders.Ef.Base.Repositories.UserRep" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAACAAAAAAAAAAAAAAABAgAAAAAAAAAAIA=</HashCode>
+      <FileName>DataProviders\Ef\Base\Repositories\UserRep.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BaseData.DataProviders.Ef.Base.Repositories.WindRoseRep" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAACAAAAAAAAAAAAAAABAgAAAAAAAAAAIA=</HashCode>
+      <FileName>DataProviders\Ef\Base\Repositories\WindRoseRep.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BaseData.DataProviders.Ef.Base.DataContext" Collapsed="true">
+    <Position X="0.75" Y="8.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ACAAACAIAAAAgAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataProviders\Ef\Base\DataContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseData.DataProviders.Ef.Contexts.SqLiteDbContext" Collapsed="true">
+    <Position X="0.5" Y="10" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataProviders\Ef\Contexts\SqLiteDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseData.Entities.EntityBase" Collapsed="true">
+    <Position X="5.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\EntityBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseData.Entities.Point" Collapsed="true">
+    <Position X="7.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAJEAAAAAAAAAIAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Point.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseData.Entities.Pollution" Collapsed="true">
+    <Position X="10" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAQAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Entities\Pollution.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseData.Entities.PollutionSet" Collapsed="true">
+    <Position X="1" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgBAAAQAAAAgAAAAQAAAAgAAAgAAAABAAAAgQAAAAA=</HashCode>
+      <FileName>Entities\PollutionSet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseData.Entities.User" Collapsed="true">
+    <Position X="3.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseData.Entities.WindRoseHandler" Collapsed="true">
+    <Position X="5.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAIAAAAAEEIAAGAAgAAAAAAAAAAAAAAgCUAAA=</HashCode>
+      <FileName>Entities\WindRoseHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseData.DataManager" Collapsed="true">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAACBAAAIAAAAAAAACAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>DataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="BaseData.Repositories.IUserRep">
+    <Position X="7.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IRepositories.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BaseData.Repositories.IPollutionRep">
+    <Position X="10" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IRepositories.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BaseData.Repositories.IPointRep">
+    <Position X="1" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IRepositories.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BaseData.Repositories.IWindRoseRep">
+    <Position X="3.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IRepositories.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BaseData.Repositories.IPollutionSetRep" Collapsed="true">
+    <Position X="5.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IRepositories.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BaseData.Repositories.IRepositoryBase&lt;T&gt;">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAABAgAAAAAAAAAAIA=</HashCode>
+      <FileName>Repositories\IRepositoryBase.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="BaseData.DataProvider" Collapsed="true">
+    <Position X="12.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAICAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>DataProvider.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

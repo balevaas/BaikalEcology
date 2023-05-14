@@ -37,7 +37,7 @@ namespace BaseData.DataProviders.Ef.Base.Repositories
 
         public async Task<int> UpdateAsync(PollutionSet item)
         {
-            item.WindRose = WindRoseHandler.GetCheckGrad(item.WindRose);
+            //item.WindRose = WindRoseHandler.GetCheckGrad(item.WindRose); //??
             var rec = await Items.FirstOrDefaultAsync(x => x.Id == item.Id);
             if (rec != default) Context.Update(item);
             else await Context.AddAsync(item);
