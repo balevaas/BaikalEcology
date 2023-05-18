@@ -7,20 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BaseData.DataProviders.Ef.Base.Repositories
+namespace BaseData.DataProviders.EntityFramework.Base.Repositories
 {
-    public class PollutionRep: IPollutionRep
+    public class PollutionFieldRep: IPollutionField
     {
         private readonly DataContext Context;
+        public PollutionFieldRep(DataContext dataContext) => Context = dataContext;
 
-        public PollutionRep(DataContext context)
-        {
-            Context = context;
-        }
+        public IQueryable<PollutionField> Items => (IQueryable<PollutionField>)Context.Monitorings;
 
-        public IQueryable<Pollution> Items => Context.Pollutions;
-
-        public async Task<int> DeleteAsync(Pollution item)
+        public async Task<int> DeleteAsync(PollutionField item)
         {
             if (Items.Contains(item))
             {
@@ -30,14 +26,14 @@ namespace BaseData.DataProviders.Ef.Base.Repositories
             return 0;
         }
 
-        public async Task<Pollution> GetItemByIdAsync(Guid id)
+        public async Task<PollutionField> GetItemByIdAsync(Guid id)
         {
-            return await Items.FirstOrDefaultAsync(x => x.Id == id);
+            return await Items.FirstOrDefaultAsync(x => x.ID == id);
         }
 
-        public async Task<int> UpdateAsync(Pollution item)
+        public async Task<int> UpdateAsync(PollutionField item)
         {
-            var rec = await Items.FirstOrDefaultAsync(x => x.Id == item.Id);
+            var rec = await Items.FirstOrDefaultAsync(x => x.ID == item.ID);
             if (rec != default) Context.Update(item);
             else await Context.AddAsync(item);
             return await Context.SaveChangesAsync();

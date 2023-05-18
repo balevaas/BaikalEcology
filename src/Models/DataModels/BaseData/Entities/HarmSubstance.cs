@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace BaseData.Entities
 {
-    public abstract class EntityBase
+    public class HarmSubstance : EntityBase
     {
-        public Guid ID { get; init; }
+        public string Name { get; set; } = null!;
+        public string Unit { get ; set; } = "мг/м3";
     }
 }

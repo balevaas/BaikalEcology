@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace BaseData.Entities
 {
-    public class Pollution : EntityBase
+    public class SoftModule : EntityBase
     {
         public string Name { get; set; } = null!;
-
-        public string Unit { get; set; } = "мг/м2";
-
-        public double Quantity { get; set; }
     }
 }

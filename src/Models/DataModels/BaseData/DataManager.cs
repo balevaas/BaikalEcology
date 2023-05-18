@@ -5,55 +5,59 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using BaseData.DataProviders.Ef.Contexts;
-using BaseData.DataProviders.Ef.Base.Repositories;
+using BaseData.DataProviders.EntityFramework.Base.Repositories;
+using BaseData.DataProviders.EntityFramework.Contexts;
 
 namespace BaseData
 {
     public class DataManager
     {
-        public IUserRep UserRep { get; }
-        public IPollutionRep PollutionRep { get; }
-        public IPointRep PointRep { get; }
-        public IPollutionSetRep PollutionSetRep { get; }
-        public IWindRoseRep WindRoseRep { get; }
+        public IHarmSubstance HarmSubstanceRep { get; }
+        public IMonitoring MonitoringRep { get; }
+        public IMonitoringType MonitoringTypeRep { get; }
+        public IPoint PointRep { get; }
+        public IPollutionField PollutionFieldRep { get; }
+        public IPost PostRep { get; }
+        public ISoftModule SoftModuleRep { get; }
 
-        private DataManager(IUserRep userRep, IPollutionRep pollutionRep, IPointRep pointRep, IPollutionSetRep pollutionSetRep, IWindRoseRep windRoseRep)
+        private DataManager(IHarmSubstance harmSubstanceRep, IMonitoring monitoringRep, IMonitoringType monitoringTypeRep, IPoint pointRep, IPollutionField pollutionFieldRep, IPost postRep, ISoftModule softModuleRep)
         {
-            UserRep = userRep;
-            PollutionRep = pollutionRep;
+            HarmSubstanceRep = harmSubstanceRep;
+            MonitoringRep = monitoringRep;
+            MonitoringTypeRep = monitoringTypeRep;
             PointRep = pointRep;
-            PollutionSetRep = pollutionSetRep;
-            WindRoseRep = windRoseRep;
+            PollutionFieldRep = pollutionFieldRep;
+            PostRep = postRep;
+            SoftModuleRep = softModuleRep;
         }
 
         public static DataManager Get(DataProvider dataProvider)
         {
             switch (dataProvider)
             {
-                case DataProvider.Sqlite:
-                    var dir = Path.GetDirectoryName(SqLiteDbContext.DataSource);
-                    if(!Directory.Exists(dir))
+                case DataProvider.SqlServer:
+                    var dir = Path.GetDirectoryName(SqlServerDbContext.DataSource);
+                    if (!Directory.Exists(dir))
                     {
                         Directory.CreateDirectory(dir!);
                     }
-                    var context = new SqLiteDbContext();
+                    var context = new SqlServerDbContext();
                     context.Database.EnsureCreated();
                     return new DataManager
                     (
-                        new UserRep(context),
-                        new PollutionRep(context),
+                        new HarmSubstanceRep(context),
+                        new MonitoringRep(context),
+                        new MonitoringTypeRep(context),
                         new PointRep(context),
-                        new PollutionSetRep(context),
-                        new WindRoseRep(context)
+                        new PollutionFieldRep(context),
+                        new PostRep(context),
+                        new SoftModuleRep(context)
                     );
 
-                case DataProvider.SqlServer:
-                case DataProvider.Oracle:
-                case DataProvider.MySql:
+                case DataProvider.SqLite:
                     throw new NotImplementedException("В работе");
                 default: throw new NotImplementedException("Ошибка");
             }
-        } 
+        }
     }
 }

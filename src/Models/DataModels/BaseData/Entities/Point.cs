@@ -9,9 +9,7 @@ namespace BaseData.Entities
     public class Point : EntityBase
     {
         public string? Name { get; set; }
-        public string? CityName { get; set; }
-        public double Latitude { get; set; }
         public double Longitude { get; set; }
-        public double Height { get; set; }
+        public double Latitude { get; set; }
     }
 }

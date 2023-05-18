@@ -16,7 +16,7 @@ namespace _DemoViewModel
 {
     public class MainViewModel : ViewModel
     {
-        private readonly DataManager dataModel = DataManager.Get(DataProvider.Sqlite);
+        private readonly DataManager dataModel = DataManager.Get(DataProvider.SqlServer);
         private string newName = "";
 
         public string NewName
@@ -32,19 +32,19 @@ namespace _DemoViewModel
         }
         public AsyncCommand NewUserCommandAsync { get; }
 
-        public ObservableCollection<User> Users { get; private set; }
+        //public ObservableCollection<User> Users { get; private set; }
 
-        public MainViewModel()
-        {
-            Users = new ObservableCollection<User>(dataModel.UserRep.Items);
-            NewUserCommandAsync = new AsyncCommand(commAsync,
-                () => NewName.Trim().Length > 2);
-        }
+        //public MainViewModel()
+        //{
+        //    Users = new ObservableCollection<User>(dataModel.UserRep.Items);
+        //    NewUserCommandAsync = new AsyncCommand(commAsync,
+        //        () => NewName.Trim().Length > 2);
+        //}
 
-        private async Task commAsync(CancellationToken arg)
-        {
-            await dataModel.UserRep.UpdateAsync(new User() { Name = "УДАЛИТЬ", Surname = NewName });
-            Users = new ObservableCollection<User>(dataModel.UserRep.Items);
-        }
+        //private async Task commAsync(CancellationToken arg)
+        //{
+        //    await dataModel.UserRep.UpdateAsync(new User() { Name = "УДАЛИТЬ", Surname = NewName });
+        //    Users = new ObservableCollection<User>(dataModel.UserRep.Items);
+        //}
     }
 }

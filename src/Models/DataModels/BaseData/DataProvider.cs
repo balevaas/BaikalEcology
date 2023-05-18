@@ -8,9 +8,7 @@ namespace BaseData
 {
     public enum DataProvider
     {
-        Sqlite, 
         SqlServer,
-        Oracle,
-        MySql
+        SqLite
     }
 }

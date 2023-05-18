@@ -60,7 +60,21 @@
                     Оценка техногенного загрязнения территорий по данным <LineBreak/> мониторинговых исследований
                 </TextBlock>
             </Border>
-            
+
+            <Button Style="{StaticResource Button}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"
+                    Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                    x:Name="dataBaseBtn" Click="windRoseBtn_Click"
+                    Margin="130,30">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource TextBlock}"
+                               FontSize="25">
+                        База данных <LineBreak/> экологического <LineBreak/> мониторинга
+                    </TextBlock>
+                </Button.Content>
+            </Button>
+
             <!--Вторая строка-->
 
             <TextBlock Style="{StaticResource TextBlock}" FontSize="30"

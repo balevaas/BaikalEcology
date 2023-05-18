@@ -7,19 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BaseData.DataProviders.Ef.Base.Repositories
+namespace BaseData.DataProviders.EntityFramework.Base.Repositories
 {
-    public class WindRoseRep : IWindRoseRep
+    public class HarmSubstanceRep : IHarmSubstance
     {
         private readonly DataContext Context;
+        public HarmSubstanceRep(DataContext dataContext) => Context = dataContext;
+        
+        public IQueryable<HarmSubstance> Items => Context.HarmSubstances;
 
-        public WindRoseRep(DataContext context)
-        {
-            Context = context;
-        }
-        public IQueryable<WindRoseHandler> Items => Context.WindRoseHandlers;
-
-        public async Task<int> DeleteAsync(WindRoseHandler item)
+        public async Task<int> DeleteAsync(HarmSubstance item)
         {
             if (Items.Contains(item))
             {
@@ -29,14 +26,14 @@ namespace BaseData.DataProviders.Ef.Base.Repositories
             return 0;
         }
 
-        public async Task<WindRoseHandler> GetItemByIdAsync(Guid id)
+        public async Task<HarmSubstance> GetItemByIdAsync(Guid id)
         {
-            return await Items.FirstOrDefaultAsync(x => x.Id == id);
+            return await Items.FirstOrDefaultAsync(x => x.ID == id);
         }
 
-        public async Task<int> UpdateAsync(WindRoseHandler item)
+        public async Task<int> UpdateAsync(HarmSubstance item)
         {
-            var rec = await Items.FirstOrDefaultAsync(x => x.Id == item.Id);
+            var rec = await Items.FirstOrDefaultAsync(x => x.ID == item.ID);
             if (rec != default) Context.Update(item);
             else await Context.AddAsync(item);
             return await Context.SaveChangesAsync();

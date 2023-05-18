@@ -7,20 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BaseData.DataProviders.Ef.Base.Repositories
+namespace BaseData.DataProviders.EntityFramework.Base.Repositories
 {
-    public class PointRep : IPointRep
+    public class SoftModuleRep : ISoftModule
     {
         private readonly DataContext Context;
+        public SoftModuleRep(DataContext dataContext) => Context = dataContext;
 
-        public PointRep(DataContext context)
-        {
-            Context = context;
-        }
+        public IQueryable<SoftModule> Items => (IQueryable<SoftModule>)Context.Monitorings;
 
-        public IQueryable<Point> Items => Context.Points;
-
-        public async Task<int> DeleteAsync(Point item)
+        public async Task<int> DeleteAsync(SoftModule item)
         {
             if (Items.Contains(item))
             {
@@ -30,14 +26,14 @@ namespace BaseData.DataProviders.Ef.Base.Repositories
             return 0;
         }
 
-        public async Task<Point> GetItemByIdAsync(Guid id)
+        public async Task<SoftModule> GetItemByIdAsync(Guid id)
         {
-            return await Items.FirstOrDefaultAsync(x => x.Id == id);
+            return await Items.FirstOrDefaultAsync(x => x.ID == id);
         }
 
-        public async Task<int> UpdateAsync(Point item)
+        public async Task<int> UpdateAsync(SoftModule item)
         {
-            var rec = await Items.FirstOrDefaultAsync(x => x.Id == item.Id);
+            var rec = await Items.FirstOrDefaultAsync(x => x.ID == item.ID);
             if (rec != default) Context.Update(item);
             else await Context.AddAsync(item);
             return await Context.SaveChangesAsync();

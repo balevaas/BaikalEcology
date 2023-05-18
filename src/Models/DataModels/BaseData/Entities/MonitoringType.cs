@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace BaseData.Entities
 {
-    public class User : EntityBase
+    public class MonitoringType : EntityBase
     {
-        public string Surname { get; set; } = null!;
-
-        public string Name { get; set; } = null!;      
+        public string Type { get; set; } = null!;
     }
 }
