@@ -14,7 +14,7 @@ namespace BaseData.DataProviders.EntityFramework.Base.Repositories
         private readonly DataContext Context;
         public PostRep(DataContext dataContext) => Context = dataContext;
 
-        public IQueryable<Post> Items => (IQueryable<Post>)Context.Monitorings;
+        public IQueryable<Post> Items => (IQueryable<Post>)Context.Posts;
 
         public async Task<int> DeleteAsync(Post item)
         {

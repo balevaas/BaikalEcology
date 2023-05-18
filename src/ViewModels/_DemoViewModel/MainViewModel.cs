@@ -19,18 +19,19 @@ namespace _DemoViewModel
         private readonly DataManager dataModel = DataManager.Get(DataProvider.SqlServer);
         private string newName = "";
 
-        public string NewName
-        {
-            get => newName;
-            set
-            {
-                if(Set(ref newName, value))
-                {
-                    NewUserCommandAsync.RaiseCanExecuteChanged();
-                }
-            }
-        }
-        public AsyncCommand NewUserCommandAsync { get; }
+        //public string NewName
+        //{
+        //    get => newName;
+        //    set
+        //    {
+        //        if(Set(ref newName, value))
+        //        {
+        //            NewUserCommandAsync.RaiseCanExecuteChanged();
+        //        }
+        //    }
+        //}
+
+        //public AsyncCommand NewUserCommandAsync { get; }
 
         //public ObservableCollection<User> Users { get; private set; }
 

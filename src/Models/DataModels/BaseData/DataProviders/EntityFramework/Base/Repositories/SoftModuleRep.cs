@@ -14,7 +14,7 @@ namespace BaseData.DataProviders.EntityFramework.Base.Repositories
         private readonly DataContext Context;
         public SoftModuleRep(DataContext dataContext) => Context = dataContext;
 
-        public IQueryable<SoftModule> Items => (IQueryable<SoftModule>)Context.Monitorings;
+        public IQueryable<SoftModule> Items => (IQueryable<SoftModule>)Context.SoftModules;
 
         public async Task<int> DeleteAsync(SoftModule item)
         {

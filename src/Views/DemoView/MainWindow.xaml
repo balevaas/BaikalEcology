@@ -65,7 +65,7 @@
                     VerticalAlignment="Center"
                     HorizontalAlignment="Right"
                     Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
-                    x:Name="dataBaseBtn" Click="windRoseBtn_Click"
+                    x:Name="dataBaseBtn" Click="dataBaseBtn_Click"
                     Margin="130,30">
                 <Button.Content>
                     <TextBlock Style="{StaticResource TextBlock}"
@@ -215,109 +215,6 @@
                     </TextBlock>
                 </Button.Content>
             </Button>
-
-            <!--Текст в фоне--><!--
-            <Border Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0"
-                    VerticalAlignment="Center" HorizontalAlignment="Left"
-                    Style="{StaticResource Border}" Margin="30">
-                <TextBlock Style="{StaticResource TextBlock}" FontSize="40" 
-                           Foreground="Black">
-                    Оценка техногенного загрязения территорий по данным <LineBreak/>  мониторинговых исследований
-                </TextBlock>
-            </Border>
-
-            --><!--Текст для расчета и визуализации--><!--
-            <TextBlock Grid.Column="1" Grid.Row="2"
-                           VerticalAlignment="Center" HorizontalAlignment="Center"
-                       Style="{StaticResource TextBlock}" FontSize="30" 
-                        Margin="30,30,0,0">
-                   По данным наземных систем мониторинга
-            </TextBlock>
-
-            --><!--Текст для мультиспектральных космоснимков--><!--
-            <TextBlock Grid.Column="2" Grid.Row="2"
-                       VerticalAlignment="Center" HorizontalAlignment="Center"
-                       Style="{StaticResource TextBlock}" FontSize="30" 
-                       Foreground="#e6dfd7" Margin="0,30,30,0">
-                       С использованием мультиспектральных  космоснимков высокого разрешения
-            </TextBlock>
-
-
-            --><!--Текст для анализа--><!--
-            <TextBlock Grid.Column="2" Grid.Row="4"
-                       VerticalAlignment="Center" HorizontalAlignment="Center"
-                       Style="{StaticResource TextBlock}" FontSize="30" 
-                       Foreground="#e6dfd7" Margin="0,30,30,0">
-                       Статистический анализ результатов численных и мониторинговых исследований
-            </TextBlock>
-
-            --><!--Кнопка архива метеорологической информации--><!--
-            
-            <Button Grid.Row="0"
-                    Style="{StaticResource Button}" 
-                    Click="button1_Click" x:Name="button1" 
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
-                    Margin="30">
-                <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}"
-                               FontSize="25">
-                        Архив <LineBreak/> метеорологической <LineBreak/> информации
-                    </TextBlock>
-                </Button.Content>
-            </Button>
-
-            --><!--Кнопка бенз(а)пирен--><!--
-            <Button Grid.Row="3" Grid.Column="1" 
-                    Style="{StaticResource Button}" 
-                    Click="button2_Click" x:Name="button2" 
-                    HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}"
-                               FontSize="25">
-                        Расчет и визуализация полей концентрации <LineBreak/> бенз(а)пирена в атмосферном воздухе <LineBreak/>  городов по данным сетевых измерений
-                    </TextBlock>
-                </Button.Content>
-            </Button>
-
-            --><!--Кнопка ртуть--><!--
-            <Button Grid.Row="4" Grid.Column="1" Style="{StaticResource Button}" 
-                    Click="button4_Click" x:Name="button3" 
-                    HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}"
-                               FontSize="25">
-                        Расчет и визуализация полей <LineBreak/> ртутного загрязнения по данным <LineBreak/>  биомониторинга на территориях городов
-                    </TextBlock>
-                </Button.Content>
-            </Button>
-            
-            --><!--Кнопка космоснимки--><!--
-            <Button Grid.Row="5" Grid.Column="1" Style="{StaticResource Button}" 
-                    Click="button3_Click" x:Name="button4" 
-                    HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}"
-                               FontSize="25">
-                        Оценка загрязнения территорий <LineBreak/> в зоне влияния промышленного  <LineBreak/> города с использованием модели распространения <LineBreak/> примеси от площадного источника
-                    </TextBlock>
-                </Button.Content>
-            </Button>
-
-            --><!--Кнопка космоснимки--><!--
-            <Button Grid.Row="3" Grid.Column="2" Style="{StaticResource Button}" 
-                    Click="button3_Click" x:Name="button7" 
-                    HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}"
-                               FontSize="25">
-                        Оценка загрязнения территорий в зоне влияния промышленного города с использованием модели распространения примеси от площадного источника
-                    </TextBlock>
-                </Button.Content>
-            </Button>-->
-            
-            
-
         </Grid>
     </Grid>
 </Window>

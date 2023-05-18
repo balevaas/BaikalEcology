@@ -14,7 +14,7 @@ namespace BaseData.DataProviders.EntityFramework.Base.Repositories
         private readonly DataContext Context;
         public PointRep(DataContext dataContext) => Context = dataContext;
 
-        public IQueryable<Point> Items => (IQueryable<Point>)Context.Monitorings;
+        public IQueryable<Point> Items => (IQueryable<Point>)Context.Points;
 
         public async Task<int> DeleteAsync(Point item)
         {

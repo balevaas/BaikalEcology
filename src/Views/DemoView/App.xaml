@@ -5,7 +5,7 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
-        <!--Стиль кнопки-->
+        <!--Стиль Button в главном окне-->
 
         <Style x:Key="Button" TargetType="Button">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -42,7 +42,7 @@
             </Style.Triggers>
         </Style>
 
-        <!--Стиль текста-->
+        <!--Стиль TextBlock-->
         <Style x:Key="TextBlock" TargetType="TextBlock">
             <Setter Property="TextWrapping" Value="Wrap"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -52,12 +52,37 @@
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
 
+        <!--Закругленный фон текста-->
         <Style x:Key="Border" TargetType="Border">
             <Setter Property="Background" Value="#6fa2d1"/>
             <Setter Property="Opacity" Value="0.7"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="CornerRadius" Value="20"/>
             <Setter Property="Padding" Value="20,0,20,0"/>
+        </Style>
+        
+        <!--Стиль TextBox-->
+        <Style x:Key="TextBox" TargetType="TextBox">
+            <Setter Property="FontFamily" Value="Sitka Banner"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+        
+        <!--Стиль DatePicker-->
+        <Style x:Key="DatePicker" TargetType="DatePicker">
+            <Setter Property="FontFamily" Value="Sitka Banner"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+
+        <!--Стиль ComboBox-->
+        <Style x:Key="ComboBox" TargetType="ComboBox">
+            <Setter Property="FontFamily" Value="Sitka Banner"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="Black"/>
         </Style>
     </Application.Resources>
 </Application>

@@ -1,0 +1,48 @@
+﻿<Window x:Class="DemoView.DataBaseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemoView"
+        mc:Ignorable="d"
+        Title="Экологический мониторинг" Height="250" Width="400" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="C:\Users\Anastasia\Desktop\image2.jpg" Opacity="0.4"/>
+    </Window.Background>
+    <Grid>
+        <StackPanel>
+            <Button Style="{StaticResource Button}" Margin="20"
+                    x:Name="pollBtn" Click="pollBtn_Click">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource TextBlock}" FontSize="24">
+                        Хранилище полей
+                    </TextBlock>
+                </Button.Content>
+            </Button>
+            <Button Style="{StaticResource Button}" Margin="20,0,20,0"
+                    x:Name="atmBtn" Click="atmBtn_Click">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource TextBlock}" FontSize="24">
+                        Атмосферное загрязнение
+                    </TextBlock>
+                </Button.Content>
+            </Button>
+            <Button Style="{StaticResource Button}" Margin="20"
+                    x:Name="snowBtn" Click="snowBtn_Click">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource TextBlock}" FontSize="24">
+                        Снежный покров
+                    </TextBlock>
+                </Button.Content>
+            </Button>
+            <Button Style="{StaticResource Button}" Margin="20,0,20,0"
+                    x:Name="bioBtn" Click="bioBtn_Click">
+                <Button.Content>
+                    <TextBlock Style="{StaticResource TextBlock}" FontSize="24">
+                        Биомониторинг
+                    </TextBlock>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

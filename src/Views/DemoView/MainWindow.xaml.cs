@@ -64,5 +64,11 @@ namespace DemoView
         {
 
         }
+
+        private void dataBaseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DataBaseWindow dataBase = new DataBaseWindow();
+            dataBase.Show();
+        }
     }
 }

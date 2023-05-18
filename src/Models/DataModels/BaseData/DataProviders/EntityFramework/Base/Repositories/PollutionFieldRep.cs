@@ -14,7 +14,7 @@ namespace BaseData.DataProviders.EntityFramework.Base.Repositories
         private readonly DataContext Context;
         public PollutionFieldRep(DataContext dataContext) => Context = dataContext;
 
-        public IQueryable<PollutionField> Items => (IQueryable<PollutionField>)Context.Monitorings;
+        public IQueryable<PollutionField> Items => (IQueryable<PollutionField>)Context.PollutionFields;
 
         public async Task<int> DeleteAsync(PollutionField item)
         {

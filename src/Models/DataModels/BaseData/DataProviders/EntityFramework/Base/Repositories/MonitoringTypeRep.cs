@@ -14,7 +14,7 @@ namespace BaseData.DataProviders.EntityFramework.Base.Repositories
         private readonly DataContext Context;
         public MonitoringTypeRep(DataContext dataContext) => Context = dataContext;
 
-        public IQueryable<MonitoringType> Items => (IQueryable<MonitoringType>)Context.Monitorings;
+        public IQueryable<MonitoringType> Items => (IQueryable<MonitoringType>)Context.MonitoringTypes;
 
         public async Task<int> DeleteAsync(MonitoringType item)
         {
