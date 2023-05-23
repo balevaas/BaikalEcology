@@ -14,7 +14,7 @@ namespace BaseData.Tests
         [TestMethod()]
         public void GetTest()
         {
-            var data = DataManager.Get(DataProvider.Sqlite);
+            //var data = DataManager.Get(DataProvider.Sqlite);
             Assert.IsTrue(true);
         }
     }

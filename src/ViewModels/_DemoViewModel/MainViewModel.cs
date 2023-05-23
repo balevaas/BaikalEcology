@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using BaseData.DataProviders.EntityFramework.Contexts;
 using ViewModelBase;
 using ViewModelBase.Commands.AsyncCommands;
 using ViewModelBase.Commands.QuickCommands;
@@ -16,7 +17,9 @@ namespace _DemoViewModel
 {
     public class MainViewModel : ViewModel
     {
-        private readonly DataManager dataModel = DataManager.Get(DataProvider.SqlServer);
+        //private readonly DataManager dataModel = DataManager.Get(DataProvider.SqlServer);
+        public DataContext Model { private get; set; }
+
         private string newName = "";
 
         //public string NewName
@@ -37,9 +40,7 @@ namespace _DemoViewModel
 
         //public MainViewModel()
         //{
-        //    Users = new ObservableCollection<User>(dataModel.UserRep.Items);
-        //    NewUserCommandAsync = new AsyncCommand(commAsync,
-        //        () => NewName.Trim().Length > 2);
+           
         //}
 
         //private async Task commAsync(CancellationToken arg)

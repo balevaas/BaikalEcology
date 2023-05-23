@@ -10,9 +10,9 @@
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
-    <Window.Background>
-        <ImageBrush ImageSource="C:\Users\Anastasia\Desktop\image2.jpg" Opacity="0.6"/>
-    </Window.Background>
+    <!--<Window.Background>
+        --><!--<ImageBrush ImageSource="C:\Users\Anastasia\Desktop\image2.jpg" Opacity="0.6"/>--><!--
+    </Window.Background>-->
     <Grid Margin="0,20,0,0">
         <TextBlock Style="{StaticResource TextBlock}" FontSize="50" 
                    VerticalAlignment="Top" HorizontalAlignment="Center"

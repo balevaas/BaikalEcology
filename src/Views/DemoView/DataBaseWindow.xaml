@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:DemoView"
         mc:Ignorable="d"
         Title="Экологический мониторинг" Height="250" Width="400" WindowStartupLocation="CenterScreen">
-    <Window.Background>
+    <!--<Window.Background>
         <ImageBrush ImageSource="C:\Users\Anastasia\Desktop\image2.jpg" Opacity="0.4"/>
-    </Window.Background>
+    </Window.Background>-->
     <Grid>
         <StackPanel>
             <Button Style="{StaticResource Button}" Margin="20"
