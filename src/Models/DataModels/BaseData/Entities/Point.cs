@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BaseData.Entities
+﻿namespace BaseData.Entities
 {
     public class Point : EntityBase
     {

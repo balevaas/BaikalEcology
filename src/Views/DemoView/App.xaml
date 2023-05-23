@@ -84,5 +84,12 @@
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Foreground" Value="Black"/>
         </Style>
+
+        <Style x:Key="DataGrid" TargetType="DataGrid">
+            <Setter Property="FontFamily" Value="Sitka Banner"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
     </Application.Resources>
 </Application>

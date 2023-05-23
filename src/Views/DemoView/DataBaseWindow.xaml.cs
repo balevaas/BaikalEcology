@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using _DemoViewModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace DemoView
 {
@@ -22,33 +11,33 @@ namespace DemoView
         public DataBaseWindow()
         {
             InitializeComponent();
+            DataContext = new PollutionFieldVm((Application.Current as App)?.Context!);
+            //DataContext = new MonitoringVm((Application.Current as App)?.Context!);
         }
 
-        private void pollBtn_Click(object sender, RoutedEventArgs e)
-        {
-            PollutionFieldWindow pollutionFieldWindow = new PollutionFieldWindow();
-            pollutionFieldWindow.Show();
-        }
-
-        private void atmBtn_Click(object sender, RoutedEventArgs e)
+        private void VisualPollutionBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void snowBtn_Click(object sender, RoutedEventArgs e)
+        private void ExportImageBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void bioBtn_Click(object sender, RoutedEventArgs e)
+        private void DeleteMonitoringBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void exitBtn_Click(object sender, RoutedEventArgs e)
+        private void AddMonitoringBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();   
-            mainWindow.Show();
+
+        }
+
+        private void UpdateMonitoringBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
