@@ -17,8 +17,11 @@ namespace _DemoViewModel
         {
             _model = model;
             Dates = new (model.PollutionFields.Select(p => p.Date));
+            Names = new(model.PollutionFields.Select(x => x.Name));
         }
 
         public ObservableCollection<DateTime> Dates { get; set; }
+        public ObservableCollection<string> Names { get; set; }
+        public ObservableCollection<Guid> SoftModules { get; set; }
     }
 }

@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:DemoView"
         mc:Ignorable="d"
         Title="PollutionFieldWindow" Height="1000" Width="1400" WindowStartupLocation="CenterScreen">
-    <!--<Window.Background>
-        <ImageBrush ImageSource="C:\Users\Anastasia\Desktop\image2.jpg" Opacity="0.4"/>
-    </Window.Background>-->
+    <Window.Background>
+        <ImageBrush ImageSource="Images\image.jpg" Opacity="0.4"/>
+    </Window.Background>
     <Grid>
         <Grid.Background>
             <SolidColorBrush Opacity="0.6" Color="White"/>
@@ -20,14 +20,19 @@
 
         <!--Поля из бд. Левая колонка-->
         <StackPanel Grid.Column="0" VerticalAlignment="Top">
-            <ComboBox Opacity="0.7" Style="{StaticResource ComboBox}"  Margin="20,0,0,0" 
-                      x:Name="DatePollutionCB" ItemsSource="{Binding Path=Dates}"/>
             <TextBlock Style="{StaticResource TextBlock}" FontSize="25"
-                                       HorizontalAlignment="Left" Margin="20,0,0,0">
-                                Название:
+                                       HorizontalAlignment="Left" Margin="20,20,0,0">
+                                Дата сохранения поля:
             </TextBlock>
             <ComboBox Opacity="0.7" Style="{StaticResource ComboBox}"  Margin="20,0,0,0" 
-                      x:Name="namePollutionCB"/>
+                      x:Name="DatePollutionCB" ItemsSource="{Binding Path=Dates}"
+                      SelectedItem="{Binding SelectRowDate}"/>
+            <TextBlock Style="{StaticResource TextBlock}" FontSize="25"
+                                       HorizontalAlignment="Left" Margin="20,20,0,0">
+                                Название поля:
+            </TextBlock>
+            <ComboBox Opacity="0.7" Style="{StaticResource ComboBox}"  Margin="20,0,0,0" 
+                      x:Name="NamePollutionCB" ItemsSource="{Binding Path=Names}"/>
             <Button Margin="20,30,0,0" x:Name="visualPollutionBtn" 
                     Click="visualPollutionBtn_Click">
                 <Button.Content>
@@ -46,9 +51,9 @@
 
             <TextBlock x:Name="module" FontSize="25"
                         Style="{StaticResource TextBlock}"
-                        HorizontalAlignment="Left" Margin="20,0,0,0">
-                 *тут отобразится название модуля* <!--КАК СВЯЗАТЬ С БД-->
-            </TextBlock>
+                        HorizontalAlignment="Left" Margin="20,0,0,0"
+                        Text="{Binding Path=SoftModules}"/>
+
         </StackPanel>
 
         <StackPanel VerticalAlignment="Bottom">

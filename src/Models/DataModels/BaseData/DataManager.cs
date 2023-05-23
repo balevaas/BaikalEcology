@@ -17,15 +17,16 @@ public class DataManager
     public IPost PostRep { get; }
     public ISoftModule SoftModuleRep { get; }
 
-    private DataManager(DataContext context)
+    private DataManager(IHarmSubstance harmSubstanceRep, IMonitoring monitoringRep, IMonitoringType monitoringTypeRep,
+        IPoint pointRep, IPollutionField pollutionFieldRep, IPost postRep, ISoftModule softModuleRep)
     {
-        //HarmSubstanceRep = context.HarmSubstances;
-        //MonitoringRep = monitoringRep;
-        //MonitoringTypeRep = monitoringTypeRep;
-        //PointRep = pointRep;
-        //PollutionFieldRep = pollutionFieldRep;
-        //PostRep = postRep;
-        //SoftModuleRep = softModuleRep;
+        HarmSubstanceRep = harmSubstanceRep;
+        MonitoringRep = monitoringRep;
+        MonitoringTypeRep = monitoringTypeRep;
+        PointRep = pointRep;
+        PollutionFieldRep = pollutionFieldRep;
+        PostRep = postRep;
+        SoftModuleRep = softModuleRep;
     }
 
     //public static DataManager Get(DataProvider dataProvider)
@@ -38,7 +39,7 @@ public class DataManager
     //            {
     //                Directory.CreateDirectory(dir!);
     //            }
-    //            var context = new SqlServerDbContext();
+    //            var context = GetConnectionStrings();
     //            context.Database.EnsureCreated();
     //            return new DataManager
     //            (

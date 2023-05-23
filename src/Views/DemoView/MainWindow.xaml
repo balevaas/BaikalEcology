@@ -6,13 +6,16 @@
         xmlns:local="clr-namespace:DemoView"
         xmlns:vm="clr-namespace:_DemoViewModel;assembly=_DemoViewModel"
         mc:Ignorable="d"
-        Title="Экология Байкальского региона" d:DesignHeight="1080" d:DesignWidth="1920" WindowStartupLocation="CenterScreen" WindowState="Maximized" ShowInTaskbar="False" ResizeMode="CanMinimize">
+        Title="Экология Байкальского региона" WindowStartupLocation="CenterScreen" 
+        WindowState="Maximized" ShowInTaskbar="False" ResizeMode="CanMinimize"
+        Height="{DynamicResource {x:Static SystemParameters.FullPrimaryScreenHeightKey}}"
+        Width="{DynamicResource {x:Static SystemParameters.FullPrimaryScreenWidthKey}}">
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
-    <!--<Window.Background>
-        --><!--<ImageBrush ImageSource="C:\Users\Anastasia\Desktop\image2.jpg" Opacity="0.6"/>--><!--
-    </Window.Background>-->
+    <Window.Background>
+        <ImageBrush ImageSource="Images\image.jpg" Opacity="0.4"/>
+    </Window.Background>
     <Grid Margin="0,20,0,0">
         <TextBlock Style="{StaticResource TextBlock}" FontSize="50" 
                    VerticalAlignment="Top" HorizontalAlignment="Center"
