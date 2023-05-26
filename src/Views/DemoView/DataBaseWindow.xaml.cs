@@ -13,7 +13,6 @@ namespace DemoView
         public DataBaseWindow()
         {
             InitializeComponent();
-
         }
 
         private void PollutionFieldBtn_Click(object sender, RoutedEventArgs e)

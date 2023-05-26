@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DemoView"
         mc:Ignorable="d"
-        Title="Мониторинговые данные" Height="800" Width="1200" WindowStartupLocation="CenterScreen">
+        Title="Мониторинговые данные" Height="800" Width="800" WindowStartupLocation="CenterScreen">
     <!--Фоновое изображение-->
     <Window.Background>
         <ImageBrush ImageSource="Images\image.jpg" Opacity="0.4"/>
@@ -15,71 +15,56 @@
         <Grid.Background>
             <SolidColorBrush Opacity="0.6" Color="White"/>
         </Grid.Background>
-        
+
         <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="0.2*"/>
-        </Grid.RowDefinitions> 
-        
-        <Border Grid.Column="1" Grid.RowSpan="2" BorderThickness="1,0" BorderBrush="Gray"/>
+        </Grid.RowDefinitions>
+            
 
-        <DataGrid ItemsSource="{Binding Monitorings}" AutoGenerateColumns="False"
-                  Margin="30" Opacity="0.9" Style="{StaticResource DataGrid}" Grid.Row="0">
-            <DataGrid.Columns>
-                <DataGridComboBoxColumn Header="Тип мониторинга" IsReadOnly="True" 
-                                        ItemsSource="{Binding MonitoringTypes}"
-                                        SelectedValueBinding="{Binding ID}"
-                                        SelectedValuePath="ID"
-                                        DisplayMemberPath="Type"/>
-                <DataGridTextColumn Header="Дата" Binding="{Binding Dates, StringFormat=d}"/>
-                <DataGridComboBoxColumn Header="Точка на карте" IsReadOnly="True"
-                                        ItemsSource="{Binding Points}"
-                                        SelectedValueBinding="{Binding ID}"
-                                        SelectedValuePath="ID"
-                                        DisplayMemberPath="Name"/>
-                <DataGridComboBoxColumn Header="Пост" IsReadOnly="True"
-                                        ItemsSource="{Binding Posts}" 
-                                        SelectedValueBinding="{Binding ID}"
-                                        SelectedValuePath="ID"
-                                        DisplayMemberPath="Name"/>
-                <DataGridComboBoxColumn Header="Вещество" IsReadOnly="True"
-                                        ItemsSource="{Binding HarmSubstances}" 
-                                        SelectedValueBinding="{Binding ID}"
-                                        SelectedValuePath="ID"
-                                        DisplayMemberPath="Name"/>
-                <DataGridTextColumn Header="Количество" Binding="{Binding Quantities}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <!--<Border Grid.Column="1" Grid.RowSpan="2" BorderThickness="1,0" BorderBrush="Gray"/>-->
 
-        <Button Grid.Row="1" HorizontalAlignment="Left"
-                Margin="30,20,30,20" x:Name="AddMonitoringBtn"
-                Click="AddMonitoringBtn_Click">
-            <Button.Content>
-                <TextBlock Margin="20" Style="{StaticResource TextBlock}" FontSize="25"
-                           Foreground="Black" Text="Добавить новые данные"/>
-            </Button.Content>
+        <ListView Grid.Row="1" Margin="10" ItemsSource="{Binding Monitors}" Style="{StaticResource ListViewStyle1}">
+            <ListView.View>
+                <GridView AllowsColumnReorder="true" ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
+                    <!--<GridViewColumn DisplayMemberBinding="{Binding MonitoringTypeID}" 
+                                    Header="Тип мониторинга" Width="Auto"/>-->
+                    <GridViewColumn DisplayMemberBinding="{Binding Date, StringFormat=d}" 
+                                    Header="Дата"  Width="Auto" />
+                    <GridViewColumn DisplayMemberBinding="{Binding PointName}" 
+                                    Header="Точка на карте" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding PostName}" 
+                                    Header="Пост" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding SubstanceID}" 
+                                    Header="Вредное вещество" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Quantity}" 
+                                    Header="Количество" Width="Auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button x:Name="AddMonitoringBtn"  Width="32" Height="32"
+                Click="AddMonitoringBtn_Click" Grid.Row="0"
+                HorizontalAlignment="Left" Margin="30,10,0,0">
+            <Button.Background>
+                <ImageBrush ImageSource="Images\create.png"/>
+            </Button.Background>
         </Button>
 
-        <Button Grid.Row="1" HorizontalAlignment="Center"
-                Margin="30,20,30,20" x:Name="UpdateMonitoringBtn"
-                Click="UpdateMonitoringBtn_Click" 
-                Height="{Binding ElementName=AddMonitoringBtn,Path=ActualHeight}"
-                Width="{Binding ElementName=AddMonitoringBtn,Path=ActualWidth}">
-            <Button.Content>
-                <TextBlock Style="{StaticResource TextBlock}" FontSize="25"
-                           Foreground="Black" Text="Изменить данные"/>
-            </Button.Content>
-        </Button>
+            <Button Width="32" Height="32" x:Name="UpdateMonitoringBtn"
+                    Click="UpdateMonitoringBtn_Click" Grid.Row="0"
+                    HorizontalAlignment="Left" Margin="80,10,0,0">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images\edit.png"/>
+                </Button.Background>
+            </Button>
 
-        <Button Grid.Row="1" HorizontalAlignment="Right"
-                Margin="30,20,30,20" x:Name="DeleteMonitoringBtn"
-                Click="DeleteMonitoringBtn_Click"
-                Height="{Binding ElementName=AddMonitoringBtn,Path=ActualHeight}"
-                Width="{Binding ElementName=AddMonitoringBtn,Path=ActualWidth}">
-            <Button.Content>
-                <TextBlock Style="{StaticResource TextBlock}" FontSize="25"
-                           Foreground="Black" Text="Удалить"/>
-            </Button.Content>
+        <Button  Width="32" Height="32" x:Name="DeleteMonitoringBtn"
+                Click="DeleteMonitoringBtn_Click"  Grid.Row="0"
+                HorizontalAlignment="Left" Margin="130,10,0,0">
+            <Button.Background>
+                <ImageBrush ImageSource="Images\delete.png"/>
+            </Button.Background>
         </Button>
     </Grid>
 </Window>

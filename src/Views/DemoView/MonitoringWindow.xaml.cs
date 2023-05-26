@@ -1,4 +1,6 @@
-﻿using System;
+﻿using _DemoViewModel;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,12 @@ namespace DemoView
     /// </summary>
     public partial class MonitoringWindow : Window
     {
+        private readonly MonitoringVm _context;
         public MonitoringWindow()
         {
             InitializeComponent();
+            _context = new MonitoringVm((Application.Current as App)?.Context!);
+            DataContext = _context;
         }
 
         private void AddMonitoringBtn_Click(object sender, RoutedEventArgs e)

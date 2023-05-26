@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -10,6 +11,8 @@ namespace ViewModelBase.Commands.AsyncCommands
     {
         private readonly Func<T?, CancellationToken, Task> _execute;
         private readonly Func<T?, bool>? _canExecute;
+
+        public ObservableCollection<string> LinkImages { get; }
 
         public AsyncCommand(
             Func<T?, CancellationToken, Task> execute,
@@ -29,6 +32,11 @@ namespace ViewModelBase.Commands.AsyncCommands
         {
             _execute = (p, _) => execute.Invoke(p);
             _canExecute = canExecute;
+        }
+
+        public AsyncCommand(ObservableCollection<string> linkImages)
+        {
+            LinkImages = linkImages;
         }
 
         public bool CanExecute(T? parameter) =>

@@ -8,6 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\create.png" />
+    <None Remove="Images\delete.png" />
+    <None Remove="Images\edit.png" />
     <None Remove="Images\image.jpg" />
   </ItemGroup>
 
@@ -16,11 +19,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\ViewModels\_DemoViewModel\_DemoViewModel.csproj" />
     <ProjectReference Include="..\..\_Core\ConnectionConfig\ConnectionConfig.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\create.png" />
+    <Resource Include="Images\delete.png" />
+    <Resource Include="Images\edit.png" />
     <Resource Include="Images\image.jpg" />
   </ItemGroup>
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DemoView"
         mc:Ignorable="d"
-        Title="Хранилище полей" Height="1000" Width="1400" WindowStartupLocation="CenterScreen">
+        Title="Репозиторий результатов численного моделирования" Height="800" Width="1200" WindowStartupLocation="CenterScreen">
     <!--Фоновое изображение-->
     <Window.Background>
         <ImageBrush ImageSource="Images\image.jpg" Opacity="0.4"/>
@@ -56,30 +56,22 @@
             </Button>
 
 
-            <TextBlock Style="{StaticResource TextBlock}"
-                       FontSize="25" Margin="20,50,10,0"
-                       HorizontalAlignment="Left" Text="Источник:"/>
-            <!--В данном текст блоке отображается название источника (модуль)-->
-            <TextBlock x:Name="Module" FontSize="25"
-                       Style="{StaticResource TextBlock}"
-                       HorizontalAlignment="Left" Margin="20,0,10,0"
-                       Text="{Binding Path=SoftModules}"/>
+            
         </StackPanel>
 
         <!--Левая колонка. Нижняя часть-->
-        <StackPanel VerticalAlignment="Bottom">
-            <!--Кнопка экспорта-->
-            <Button Margin="20,0,10,30" x:Name="ExportImageBtn" 
-                    Click="ExportImageBtn_Click"  VerticalAlignment="Bottom">
-                <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}"
-                               FontSize="25" Foreground="Black" 
-                               Text="Экспорт изображения"/>
-                </Button.Content>
-            </Button>
+        <StackPanel VerticalAlignment="Bottom" Margin="20">
+            <TextBlock Style="{StaticResource TextBlock}"
+                       FontSize="25" HorizontalAlignment="Left" Text="Источник:"/>
+            <!--В данном текст блоке отображается название источника (модуль)-->
+            <TextBlock x:Name="Module" FontSize="25"
+                       Style="{StaticResource TextBlock}"
+                       HorizontalAlignment="Left" 
+                       Text="{Binding Path=SoftModules}"/>
         </StackPanel>
 
         <!--Изображение. Правая колонка-->
-        <TextBlock Grid.Column="1" FontSize="30" x:Name="PollutionsTB" Text="{Binding Path=LinkImages}"/>
+        <Image Grid.Column="1" Source="{Binding Getlink}"/>
+        <!--<TextBlock Grid.Column="1" Text="{Binding Path=LinkImages}" Style="{StaticResource TextBlock}" FontSize="50"/>-->
     </Grid>
 </Window>
