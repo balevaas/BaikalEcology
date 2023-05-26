@@ -8,6 +8,6 @@ namespace BaseData.Entities
 {
     public abstract class EntityBase
     {
-        public Guid ID { get; init; }
+        public int ID { get; init; }
     }
 }

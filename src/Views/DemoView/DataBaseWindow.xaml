@@ -5,148 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DemoView"
         mc:Ignorable="d"
-        Title="Экологический мониторинг" Height="800" Width="1200" WindowStartupLocation="CenterScreen">
+        Title="Экологический мониторинг" Height="300" Width="450" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <ImageBrush ImageSource="Images\image.jpg" Opacity="0.4"/>
     </Window.Background>
     <Grid>
-        <TabControl Margin="10">
-            <TabControl.Background>
-                <SolidColorBrush Opacity="0.6" Color="White"/>
-            </TabControl.Background>
-            <TabItem x:Name="PollutionFieldTab" Opacity="0.6">
-                <TabItem.Header>
-                    <TextBlock Style="{StaticResource TextBlock}" 
-                               FontSize="25" Text="Хранилище полей загрязнения"/>
-                </TabItem.Header>
-                <TabItem.Content>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.3*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Border Grid.Column="1" Grid.RowSpan="1" BorderThickness="1,0" BorderBrush="Gray"/>
-
-                        <!--Поля из бд. Левая колонка-->
-                        <StackPanel Grid.Column="0" VerticalAlignment="Top">
-                            <TextBlock Style="{StaticResource TextBlock}" FontSize="20"
-                                       HorizontalAlignment="Left" Margin="20,20,10,0" Text="Дата сохранения поля:"/>
-                            
-                            <ComboBox Opacity="0.7" Style="{StaticResource ComboBox}"  Margin="20,0,10,0" 
-                                      x:Name="DatePollutionCB" ItemsSource="{Binding Path=Dates}"
-                                      SelectedItem="{Binding Path=SelectRowDate}"/>
-
-                            <TextBlock Style="{StaticResource TextBlock}" FontSize="20"
-                                       HorizontalAlignment="Left" Margin="20,20,10,0" Text="Название поля:"/>
-
-                            <ComboBox Opacity="0.7" Style="{StaticResource ComboBox}"  Margin="20,0,10,0"
-                                      x:Name="NamePollutionCB" ItemsSource="{Binding Path=Names}"/>
-                            
-                            <Button Margin="20,30,10,0" x:Name="VisualPollutionBtn" 
-                                Click="VisualPollutionBtn_Click">
-                                <Button.Content>
-                                    <TextBlock Style="{StaticResource TextBlock}" FontSize="25"
-                                        Foreground="Black" Text="Отобразить поле"/>
-                                </Button.Content>
-                            </Button>
-
-                            <TextBlock Style="{StaticResource TextBlock}"
-                                       FontSize="25" Margin="20,50,10,0"
-                                       HorizontalAlignment="Left" Text="Источник:"/>
-
-                            <TextBlock x:Name="module" FontSize="25"
-                                       Style="{StaticResource TextBlock}"
-                                       HorizontalAlignment="Left" Margin="20,0,10,0"
-                                       Text="{Binding Path=SoftModules}"/>
-                        </StackPanel>
-
-                        <StackPanel VerticalAlignment="Bottom">
-                            <Button Margin="20,0,10,30" x:Name="ExportImageBtn" 
-                                    Click="ExportImageBtn_Click"  VerticalAlignment="Bottom">
-                                <Button.Content>
-                                    <TextBlock Style="{StaticResource TextBlock}"
-                                               FontSize="25" Foreground="Black" Text="Экспорт изображения"/>                                    
-                                </Button.Content>
-                            </Button>
-                        </StackPanel>
-
-                        <!--Изображение. Правая колонка-->
-                        <Label Grid.Column="1" x:Name="pollutions" Content="{Binding Path=LinkImages}"/>
-                    </Grid>
-                </TabItem.Content>
-            </TabItem>
-
-            <TabItem x:Name="MonitoringTab" Opacity="0.6">
-                <TabItem.Header>
-                    <TextBlock Style="{StaticResource TextBlock}" 
-                               FontSize="25" Text="Наземный мониторинг"/>
-                </TabItem.Header>
-                <TabItem.Content>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="0.4*"/>
-                        </Grid.ColumnDefinitions>
-                        <Border Grid.Column="1" Grid.RowSpan="2" BorderThickness="1,0" BorderBrush="Gray"/>
-
-                        <DataGrid ItemsSource="{Binding Monitorings}" AutoGenerateColumns="False"
-                                  Margin="30" Opacity="0.9" Style="{StaticResource DataGrid}" Grid.Column="0">
-                            <DataGrid.Columns>
-                                <DataGridComboBoxColumn
-                                    Header="Тип мониторинга" IsReadOnly="True"
-                                    ItemsSource="{Binding MonitoringTypes}"
-                                    SelectedValueBinding="{Binding ID}"
-                                    SelectedValuePath="ID"
-                                    DisplayMemberPath="Type"/>
-                                <DataGridTextColumn Header="Дата" Binding="{Binding Dates, StringFormat=d}"/>
-                                <DataGridComboBoxColumn 
-                                    Header="Точка на карте" IsReadOnly="True"
-                                    ItemsSource="{Binding Points}"
-                                    SelectedValueBinding="{Binding ID}"
-                                    SelectedValuePath="ID"
-                                    DisplayMemberPath="Name"/>  
-                                <DataGridComboBoxColumn
-                                    Header="Пост" IsReadOnly="True"
-                                    ItemsSource="{Binding Posts}" 
-                                    SelectedValueBinding="{Binding ID}"
-                                    SelectedValuePath="ID"
-                                    DisplayMemberPath="Name"/>
-                                <DataGridComboBoxColumn
-                                    Header="Вещество" IsReadOnly="True"
-                                    ItemsSource="{Binding HarmSubstances}" 
-                                    SelectedValueBinding="{Binding ID}"
-                                    SelectedValuePath="ID"
-                                    DisplayMemberPath="Name"/>
-                                <DataGridTextColumn Header="Количество" Binding="{Binding Quantities}"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
-
-                        <StackPanel  Grid.Column="1" VerticalAlignment="Top">
-                            <Button Margin="30" x:Name="AddMonitoringBtn"
-                                    Click="AddMonitoringBtn_Click">
-                                <Button.Content>
-                                    <TextBlock Style="{StaticResource TextBlock}" FontSize="20"
-                                                Foreground="Black" Text="Добавить новые данные"/> 
-                                </Button.Content>
-                            </Button>
-                            <Button Margin="30,0,30,0" x:Name="UpdateMonitoringBtn"
-                                    Click="UpdateMonitoringBtn_Click">
-                                <Button.Content>
-                                    <TextBlock Style="{StaticResource TextBlock}" FontSize="20"
-                                                Foreground="Black" Text="Изменить данные"/>                                    
-                                </Button.Content>
-                            </Button>
-                            <Button Margin="30" x:Name="DeleteMonitoringBtn"
-                                    Click="DeleteMonitoringBtn_Click">
-                                <Button.Content>
-                                    <TextBlock Style="{StaticResource TextBlock}" FontSize="20"
-                                               Foreground="Black" Text="Удалить"/>
-                                </Button.Content>
-                            </Button>
-                        </StackPanel>
-                    </Grid>
-                </TabItem.Content>
-            </TabItem>            
-        </TabControl>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Style="{StaticResource Button}" Grid.Row="0"
+                HorizontalAlignment="Center" Margin="10,30,10,30"
+                x:Name="PollutionFieldBtn" Click="PollutionFieldBtn_Click"
+                Width="{Binding ElementName=MonitoringBtn, Path=ActualWidth}">
+            <Button.Content>
+                <TextBlock Style="{StaticResource TextBlock}" FontSize="30">
+                        Хранилище полей
+                </TextBlock>
+            </Button.Content>
+        </Button>
+        <Button Style="{StaticResource Button}" Grid.Row="1"
+                HorizontalAlignment="Center" Margin="10,30,10,30"
+                x:Name="MonitoringBtn" Click="MonitoringBtn_Click">
+            <Button.Content>
+                <TextBlock Style="{StaticResource TextBlock}" FontSize="30">
+                        Мониторинговые данные
+                </TextBlock>
+            </Button.Content>
+        </Button>
     </Grid>
 </Window>

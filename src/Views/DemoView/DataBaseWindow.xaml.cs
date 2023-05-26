@@ -1,5 +1,7 @@
-﻿using _DemoViewModel;
+﻿using System;
+using _DemoViewModel;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace DemoView
 {
@@ -11,33 +13,19 @@ namespace DemoView
         public DataBaseWindow()
         {
             InitializeComponent();
-            DataContext = new PollutionFieldVm((Application.Current as App)?.Context!);
-            //DataContext = new MonitoringVm((Application.Current as App)?.Context!);
-        }
-
-        private void VisualPollutionBtn_Click(object sender, RoutedEventArgs e)
-        {
 
         }
 
-        private void ExportImageBtn_Click(object sender, RoutedEventArgs e)
+        private void PollutionFieldBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            PollutionFieldWindow window = new();
+            window.Show();
         }
 
-        private void DeleteMonitoringBtn_Click(object sender, RoutedEventArgs e)
+        private void MonitoringBtn_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void AddMonitoringBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void UpdateMonitoringBtn_Click(object sender, RoutedEventArgs e)
-        {
-
+            MonitoringWindow window = new();
+            window.Show();
         }
     }
 }

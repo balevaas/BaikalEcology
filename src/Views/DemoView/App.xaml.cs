@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using BaseData.DataProviders.EntityFramework.Contexts;
 using Microsoft.EntityFrameworkCore;
-using static ConnectionConfig.ConnectionStrings;
+using static ConnectionConfig.Strings;
 
 namespace DemoView
 {
@@ -16,12 +10,18 @@ namespace DemoView
     /// </summary>
     public partial class App : Application
     {
-        private readonly DbContextFactory _context;
+        private DbContextFactory _context;
 
         public DataContext Context => _context.Create();
 
         public App()
         {
+            
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
             var builder = new DbContextOptionsBuilder<DataContext>();
             builder.UseSqlServer(GetConnectionStrings(SqlExpress));
 

@@ -27,7 +27,7 @@ namespace BaseData.DataProviders.EntityFramework.Base.Repositories
             return 0;
         }
 
-        public async Task<HarmSubstance> GetItemByIdAsync(Guid id)
+        public async Task<HarmSubstance> GetItemByIdAsync(int id)
         {
             return await Items.FirstOrDefaultAsync(x => x.ID == id);
         }

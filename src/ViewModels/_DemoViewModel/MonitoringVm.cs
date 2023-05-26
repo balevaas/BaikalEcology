@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace _DemoViewModel
 {
-    internal class MonitoringVm
+    public class MonitoringVm
     {
+
     }
 }

@@ -4,7 +4,6 @@
              xmlns:local="clr-namespace:DemoView"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-
         <!--Стиль Button в главном окне-->
 
         <Style x:Key="Button" TargetType="Button">
@@ -85,9 +84,10 @@
             <Setter Property="Foreground" Value="Black"/>
         </Style>
 
+        <!--Стиль DataGrid-->
         <Style x:Key="DataGrid" TargetType="DataGrid">
             <Setter Property="FontFamily" Value="Sitka Banner"/>
-            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontSize" Value="25"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Foreground" Value="Black"/>
         </Style>

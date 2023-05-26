@@ -6,46 +6,35 @@
         xmlns:local="clr-namespace:DemoView"
         xmlns:vm="clr-namespace:_DemoViewModel;assembly=_DemoViewModel"
         mc:Ignorable="d"
-        Title="Экология Байкальского региона" WindowStartupLocation="CenterScreen" 
-        WindowState="Maximized" ShowInTaskbar="False" ResizeMode="CanMinimize"
-        Height="{DynamicResource {x:Static SystemParameters.FullPrimaryScreenHeightKey}}"
-        Width="{DynamicResource {x:Static SystemParameters.FullPrimaryScreenWidthKey}}">
+        Title="Экология Байкальского региона" WindowStartupLocation="CenterScreen"
+        Height="1000" Width="1400">
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
     <Window.Background>
         <ImageBrush ImageSource="Images\image.jpg" Opacity="0.4"/>
     </Window.Background>
-    <Grid Margin="0,20,0,0">
-        <TextBlock Style="{StaticResource TextBlock}" FontSize="50" 
+    <Grid Margin="20">
+        
+        <StackPanel>
+            <TextBlock Style="{StaticResource TextBlock}" FontSize="40"
                    VerticalAlignment="Top" HorizontalAlignment="Center"
                    Foreground="#e6dfd7">
             Информационно-аналитическая система «Экология Байкальского региона»
-        </TextBlock>
+            </TextBlock>
+        </StackPanel>
 
-        <Grid Margin="0,80,0,0" >
+        <Grid Margin="20,60,25,780">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-
-            <!--Первая строка-->
-
-            <Button Style="{StaticResource Button}"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
-                    x:Name="windRoseBtn" Click="windRoseBtn_Click"
-                    Margin="130,30">
+            
+            <Button Style="{StaticResource Button}" Grid.Column="0"
+                    VerticalAlignment="Top" HorizontalAlignment="Left"
+                    x:Name="WindRoseBtn" Command="{Binding StartGloba}"
+                    CommandParameter="">
                 <Button.Content>
                     <TextBlock Style="{StaticResource TextBlock}"
                                FontSize="25">
@@ -53,168 +42,151 @@
                     </TextBlock>
                 </Button.Content>
             </Button>
-
-            <Border Grid.Row="0"
-                    Grid.Column="1" Grid.ColumnSpan="3" 
+            
+            <Border Grid.Column="0" Grid.ColumnSpan="3"
                     Style="{StaticResource Border}"
-                    VerticalAlignment="Center" HorizontalAlignment="Center">
+                    VerticalAlignment="Top" HorizontalAlignment="Center"
+                    Height="{Binding ElementName=WindRoseBtn, Path=ActualHeight}"
+                    Width="{Binding ElementName=Correlation2Btn1, Path=ActualWidth}">
                 <TextBlock Style="{StaticResource TextBlock}"
-                           FontSize="40" Foreground="Black">
-                    Оценка техногенного загрязнения территорий по данным <LineBreak/> мониторинговых исследований
+                           FontSize="29" Foreground="Black">
+                    Оценка техногенного загрязнения территорий по данным мониторинговых исследований
                 </TextBlock>
             </Border>
 
-            <Button Style="{StaticResource Button}"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Right"
-                    Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
-                    x:Name="dataBaseBtn" Click="dataBaseBtn_Click"
-                    Margin="130,30">
+            <Button Style="{StaticResource Button}" Grid.Row="0" Grid.Column="2"
+                    VerticalAlignment="Top" HorizontalAlignment="Right"
+                    x:Name="DataBaseBtn" Click="DataBaseBtn_Click"
+                    Height="{Binding ElementName=WindRoseBtn, Path=ActualHeight}"
+                    Width="{Binding ElementName=WindRoseBtn,Path=ActualWidth}">
                 <Button.Content>
                     <TextBlock Style="{StaticResource TextBlock}"
                                FontSize="25">
-                        База данных <LineBreak/> экологического <LineBreak/> мониторинга
+                        База данных экологического мониторинга
                     </TextBlock>
                 </Button.Content>
             </Button>
-
-            <!--Вторая строка-->
-
+        </Grid>
+        
+        <Grid Margin="0,180,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
             <TextBlock Style="{StaticResource TextBlock}" FontSize="30"
-                       Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"
+                       Grid.Column="0" Grid.Row="0"
                        VerticalAlignment="Center" HorizontalAlignment="Center"
                        Foreground="#e6dfd7">
                 По данным наземных систем мониторинга
             </TextBlock>
-
+            
             <TextBlock Style="{StaticResource TextBlock}" FontSize="30"
-                       Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1"
+                       Grid.Column="1" Grid.Row="0"
                        VerticalAlignment="Center" HorizontalAlignment="Center"
                        Foreground="#e6dfd7">
-                С использованием мультиспектральных космоснимков <LineBreak/> выского разрешения
+                С использованием мультиспектральных космоснимков выского разрешения
             </TextBlock>
             
-            <!--Третья строка-->
-
-            <Button Style="{StaticResource Button}" 
-                    VerticalAlignment="Center" 
-                    HorizontalAlignment="Center"
-                    Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
-                    x:Name="benzopyreneBtn" Click="benzopyreneBtn_Click"
-                    Margin="30"
-                    Width="{Binding ElementName=correlation2Btn1, Path=ActualWidth}"
-                    Height="{Binding ElementName=correlation2Btn1, Path=ActualHeight}">
+            <Button Style="{StaticResource Button}" Grid.Row="1" Grid.Column="0"
+                    VerticalAlignment="Center" HorizontalAlignment="Center"
+                    x:Name="BenzopyreneBtn" Command="{Binding StartBerezina}"
+                    CommandParameter=""
+                    Width="{Binding ElementName=Correlation2Btn1, Path=ActualWidth}"
+                    Height="{Binding ElementName=Correlation2Btn1, Path=ActualHeight}">
                 <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}"
-                               FontSize="25">
+                    <TextBlock Style="{StaticResource TextBlock}" FontSize="25">
                         Расчет и визуализация полей концентрации бенз(а)пирена в атмосферном воздухе городов по данным сетевых измерений
                     </TextBlock>
                 </Button.Content>
             </Button>
 
-            <Button Style="{StaticResource Button}"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
-                    Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"
-                    x:Name="dustBtn" Click="dustBtn_Click"
-                    Width="{Binding ElementName=correlation2Btn1, Path=ActualWidth}"
-                    Height="{Binding ElementName=correlation2Btn1, Path=ActualHeight}">
+            <Button Style="{StaticResource Button}" Grid.Row="1" Grid.Column="1"
+                    VerticalAlignment="Center" HorizontalAlignment="Center"
+                    x:Name="DustBtn" Command="{Binding StartSafronov}" 
+                    CommandParameter=""
+                    Width="{Binding ElementName=Correlation2Btn1, Path=ActualWidth}"
+                    Height="{Binding ElementName=Correlation2Btn1, Path=ActualHeight}">
                 <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}"
-                               FontSize="25">
+                    <TextBlock Style="{StaticResource TextBlock}" FontSize="25">
                         Оценка пылевого загрязнения местности по данным мультиспектральных космоснимков высокого разрешения
                     </TextBlock>
                 </Button.Content>
-    
             </Button>
 
-            <!--Четвертая строка-->
-
-            <Button Style="{StaticResource Button}"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
-                    Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
-                    x:Name="mercuryBtn" Click="mercuryBtn_Click"
-                    Margin="15" 
-                    Width="{Binding ElementName=correlation2Btn1, Path=ActualWidth}"
-                    Height="{Binding ElementName=correlation2Btn1, Path=ActualHeight}">
+            <Button Style="{StaticResource Button}" Grid.Row="2" Grid.Column="0"
+                    VerticalAlignment="Center" HorizontalAlignment="Center"
+                    x:Name="MercuryBtn" Command="{Binding StartMarkov}"
+                    CommandParameter=""
+                    Width="{Binding ElementName=Correlation2Btn1, Path=ActualWidth}"
+                    Height="{Binding ElementName=Correlation2Btn1, Path=ActualHeight}">
                 <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}"
-                               FontSize="25">
+                    <TextBlock Style="{StaticResource TextBlock}" FontSize="25">
                         Расчет и визуализация полей ртутного загрязнения по данным биомониторинга на территориях городов
                     </TextBlock>
                 </Button.Content>
             </Button>
 
             <TextBlock Style="{StaticResource TextBlock}" FontSize="30"
-                       Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="3"
+                       Grid.Column="1" Grid.Row="2"
                        VerticalAlignment="Center" HorizontalAlignment="Center"
                        Foreground="#e6dfd7">
-                Статистический анализ результатов численных и <LineBreak/> мониторинговых исследований
+                Статистический анализ результатов численных и мониторинговых исследований
             </TextBlock>
-            
-            <!--Пятая строка-->
 
-            <Button Style="{StaticResource Button}"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
-                    Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
-                    x:Name="impuritiesBtn" Click="impuritiesBtn_Click"
-                    Margin="15" 
-                    Width="{Binding ElementName=correlation2Btn1, Path=ActualWidth}"
-                    Height="{Binding ElementName=correlation2Btn1, Path=ActualHeight}">
+            <Button Style="{StaticResource Button}" Grid.Row="3" Grid.Column="0"
+                    VerticalAlignment="Center" HorizontalAlignment="Center"
+                    x:Name="ImpuritiesBtn" Command="{Binding StartSlyusar}"
+                    CommandParameter=""
+                    Width="{Binding ElementName=Correlation2Btn1, Path=ActualWidth}"
+                    Height="{Binding ElementName=Correlation2Btn1, Path=ActualHeight}">
                 <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}"
-                               FontSize="25">
+                    <TextBlock Style="{StaticResource TextBlock}" FontSize="25">
                         Оценка загрязнения территорий в зоне влияния промышленного города с использованием модели распространения примеси от площадного источника
                     </TextBlock>
                 </Button.Content>
             </Button>
 
-            <Button Style="{StaticResource Button}"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
-                    Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"
-                    x:Name="correlation1Btn1" Click="correlationBtn1_Click"
-                    Margin="15" 
-                    Width="{Binding ElementName=correlation2Btn1, Path=ActualWidth}"
-                    Height="{Binding ElementName=correlation2Btn1, Path=ActualHeight}">
+            <Button Style="{StaticResource Button}" Grid.Row="3" Grid.Column="1"
+                    VerticalAlignment="Center" HorizontalAlignment="Center"
+                    x:Name="Correlation1Btn1" Command="{Binding StartPavlov}"
+                    CommandParameter=""
+                    Width="{Binding ElementName=Correlation2Btn1, Path=ActualWidth}"
+                    Height="{Binding ElementName=Correlation2Btn1, Path=ActualHeight}">
                 <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}"
-                               FontSize="25">
+                    <TextBlock Style="{StaticResource TextBlock}" FontSize="25">
                         Выявление корреляционных зависимостей между измерениями бенз(а)пирена в атмосферном воздухе городов и характеристиками ветрового режима
                     </TextBlock>
                 </Button.Content>
             </Button>
-            
-            <!--Шестая строка-->
 
-            <Button Style="{StaticResource Button}"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
-                    Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
-                    x:Name="minimaxBtn1" Click="minimaxBtn1_Click"
-                    Margin="15" 
-                    Width="{Binding ElementName=correlation2Btn1, Path=ActualWidth}"
-                    Height="{Binding ElementName=correlation2Btn1, Path=ActualHeight}">
+            <Button Style="{StaticResource Button}" Grid.Row="4" Grid.Column="0"
+                    VerticalAlignment="Center" HorizontalAlignment="Center"
+                    x:Name="MinimaxBtn1" Command="{Binding StartPinigin}"
+                    CommandParameter=""
+                    Width="{Binding ElementName=Correlation2Btn1, Path=ActualWidth}"
+                    Height="{Binding ElementName=Correlation2Btn1, Path=ActualHeight}">
                 <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}"
-                               FontSize="25">
+                    <TextBlock Style="{StaticResource TextBlock}" FontSize="25">
                         Расчет выпадений загрязняющих примесей на территориях городов с использованием минимаксных моделей оценивания параметров эмиссии точечных и площадных источников
                     </TextBlock>
                 </Button.Content>
             </Button>
-
-            <Button Style="{StaticResource Button}"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
-                    Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2"
-                    Name="correlation2Btn1" Click="correlation2Btn1_Click"
-                    Margin="15">
+            
+            <Button Style="{StaticResource Button}" Grid.Row="4" Grid.Column="1"
+                    VerticalAlignment="Center" HorizontalAlignment="Center"                   
+                    Name="Correlation2Btn1" Command="{Binding StartBiryukov}"
+                    CommandParameter="" Margin="10,10,10,10">
                 <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}"
-                               FontSize="25">
-                        Получение корреляционных зависимостей между уровнями <LineBreak/> рассчитанного техногенного регионального загрязнения и  <LineBreak/> спектральными характеристиками  в точках местности с <LineBreak/> использованием наземных и спутниковых измерений
+                    <TextBlock Style="{StaticResource TextBlock}" FontSize="25">
+                        Получение корреляционных зависимостей между уровнями рассчитанного техногенного регионального загрязнения и спектральными характеристиками  в точках местности с использованием наземных и спутниковых измерений
                     </TextBlock>
                 </Button.Content>
             </Button>

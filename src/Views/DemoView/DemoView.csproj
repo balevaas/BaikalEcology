@@ -4,10 +4,15 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net7.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Images\image.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="icon.ico" />
   </ItemGroup>
 
   <ItemGroup>

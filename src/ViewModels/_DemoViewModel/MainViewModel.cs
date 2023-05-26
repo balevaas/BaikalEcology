@@ -1,52 +1,31 @@
-﻿using BaseData;
-using BaseData.Entities;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using BaseData.DataProviders.EntityFramework.Contexts;
+﻿using CoreModel;
 using ViewModelBase;
-using ViewModelBase.Commands.AsyncCommands;
 using ViewModelBase.Commands.QuickCommands;
 
 namespace _DemoViewModel
 {
     public class MainViewModel : ViewModel
     {
-        //private readonly DataManager dataModel = DataManager.Get(DataProvider.SqlServer);
-        public DataContext Model { private get; set; }
+        public MainViewModel()
+        {
+            StartGloba = new Command<string>(OuterHandler.Starter);
+            StartBerezina = new Command<string>(OuterHandler.Starter);
+            StartSafronov = new Command<string>(OuterHandler.Starter);
+            StartMarkov = new Command<string>(OuterHandler.Starter);
+            StartSlyusar = new Command<string>(OuterHandler.Starter);
+            StartPavlov = new Command<string>(OuterHandler.Starter);
+            StartPinigin = new Command<string>(OuterHandler.Starter);
+            StartBiryukov = new Command<string>(OuterHandler.Starter);
+        }
 
-        private string newName = "";
+        public Command<string> StartGloba { get; }
+        public Command<string> StartBerezina { get; }
+        public Command<string> StartSafronov { get; }
+        public Command <string> StartMarkov { get; }
+        public Command<string> StartSlyusar { get; }
+        public Command<string> StartPavlov { get; }
+        public Command<string> StartPinigin { get; }
+        public Command<string> StartBiryukov { get; }
 
-        //public string NewName
-        //{
-        //    get => newName;
-        //    set
-        //    {
-        //        if(Set(ref newName, value))
-        //        {
-        //            NewUserCommandAsync.RaiseCanExecuteChanged();
-        //        }
-        //    }
-        //}
-
-        //public AsyncCommand NewUserCommandAsync { get; }
-
-        //public ObservableCollection<User> Users { get; private set; }
-
-        //public MainViewModel()
-        //{
-           
-        //}
-
-        //private async Task commAsync(CancellationToken arg)
-        //{
-        //    await dataModel.UserRep.UpdateAsync(new User() { Name = "УДАЛИТЬ", Surname = NewName });
-        //    Users = new ObservableCollection<User>(dataModel.UserRep.Items);
-        //}
     }
 }

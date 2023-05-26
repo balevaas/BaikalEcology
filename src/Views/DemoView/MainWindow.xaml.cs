@@ -1,18 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using _DemoViewModel;
+﻿using System.Windows;
+using static ConnectionConfig.Strings;
 
 namespace DemoView
 {
@@ -20,56 +7,23 @@ namespace DemoView
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
+    {        
         public MainWindow()
         {
             InitializeComponent();
-
+            WindRoseBtn.CommandParameter = GetPath(Globa);
+            //BenzopyreneBtn.CommandParameter = GetPath(Berezina);
+            //DustBtn.CommandParameter = GetPath(Safronov);
+            //MercuryBtn.CommandParameter = GetPath(Markov);
+            //ImpuritiesBtn.CommandParameter = GetPath(Slyusar);
+            //Correlation1Btn1.CommandParameter = GetPath(Pavlov);
+            //MinimaxBtn1.CommandParameter = GetPath(Pinigin);
+            //Correlation2Btn1.CommandParameter = GetPath(Biryukov);
         }
 
-        private void windRoseBtn_Click(object sender, RoutedEventArgs e)
+        private void DataBaseBtn_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void benzopyreneBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void mercuryBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void dustBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void impuritiesBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void correlationBtn1_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void minimaxBtn1_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void correlation2Btn1_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void dataBaseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            DataBaseWindow dataBase = new DataBaseWindow();
+            DataBaseWindow dataBase = new();
             dataBase.Show();
         }
     }

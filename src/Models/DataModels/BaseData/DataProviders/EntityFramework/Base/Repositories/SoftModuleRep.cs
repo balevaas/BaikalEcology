@@ -27,7 +27,7 @@ namespace BaseData.DataProviders.EntityFramework.Base.Repositories
             return 0;
         }
 
-        public async Task<SoftModule> GetItemByIdAsync(Guid id)
+        public async Task<SoftModule> GetItemByIdAsync(int id)
         {
             return await Items.FirstOrDefaultAsync(x => x.ID == id);
         }
