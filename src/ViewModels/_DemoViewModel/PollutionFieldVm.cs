@@ -33,6 +33,8 @@ namespace _DemoViewModel
             OnPropertyChanged(nameof(LinkImages));
         }
 
+        
+
 
         public Command<DateTime> SelectDateCommand { get; }
         public Command<string> SelectNameCommand { get; }

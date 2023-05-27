@@ -12,8 +12,6 @@ namespace ViewModelBase.Commands.AsyncCommands
         private readonly Func<T?, CancellationToken, Task> _execute;
         private readonly Func<T?, bool>? _canExecute;
 
-        public ObservableCollection<string> LinkImages { get; }
-
         public AsyncCommand(
             Func<T?, CancellationToken, Task> execute,
             Func<T?, bool>? canExecute = null,
@@ -32,11 +30,6 @@ namespace ViewModelBase.Commands.AsyncCommands
         {
             _execute = (p, _) => execute.Invoke(p);
             _canExecute = canExecute;
-        }
-
-        public AsyncCommand(ObservableCollection<string> linkImages)
-        {
-            LinkImages = linkImages;
         }
 
         public bool CanExecute(T? parameter) =>
