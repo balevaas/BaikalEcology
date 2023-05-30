@@ -36,6 +36,7 @@ namespace DemoView
         private void VisualPollutionBtn_Click(object sender, RoutedEventArgs e)
         {
             ImagePol.Source = new BitmapImage(new Uri(string.Join("", _context.LinkImages), UriKind.Absolute));
+            Module.Text = string.Join("", _context.NameSoft);
         }
     }
 }

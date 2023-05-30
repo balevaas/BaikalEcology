@@ -14,6 +14,7 @@ namespace _DemoViewModel
     public class PollutionFieldVm : ViewModel
     {
         private readonly DataContext _model;
+        public string NameSoft;
 
         public PollutionFieldVm(DataContext model)
         {
@@ -33,11 +34,13 @@ namespace _DemoViewModel
         private void SelectName (string name)
         {
             LinkImages = new ObservableCollection<string>(_model.PollutionFields.Where(r => r.Name == name).Select(r => r.LinkImage));
-            SoftModules = new ObservableCollection<SoftModule>(_model.PollutionFields.Where(f => f.Name == name).Select(f => f.SoftModule));
+            SoftId = new ObservableCollection<SoftModule>(_model.PollutionFields.Where(h => h.Name == name).Select(h => h.SoftModule));
+            NameSoft = SoftId.ElementAt(0).Name;
             OnPropertyChanged(nameof(LinkImages));
+            OnPropertyChanged(nameof(NameSoft));
         }
 
-
+        
         public Command<DateTime> SelectDateCommand { get; }
         public Command<string> SelectNameCommand { get; }
 
@@ -47,8 +50,7 @@ namespace _DemoViewModel
 
         public ObservableCollection<string> LinkImages { get; private set; } = new ObservableCollection<string>();
 
-        public ObservableCollection<SoftModule> SoftModules { get; private set;} = new ObservableCollection<SoftModule>();
-
-       
+        public ObservableCollection<SoftModule> SoftId { get; private set; } = new ObservableCollection<SoftModule>();
+               
     }
 }

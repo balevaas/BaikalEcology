@@ -62,12 +62,11 @@
         <!--Левая колонка. Нижняя часть-->
         <StackPanel VerticalAlignment="Bottom" Margin="20">
             <TextBlock Style="{StaticResource TextBlock}"
-                       FontSize="25" HorizontalAlignment="Left" Text="Источник:"/>
+                       FontSize="25" TextAlignment="Left" Text="Источник:"/>
             <!--В данном текст блоке отображается название источника (модуль)-->
-            <TextBlock x:Name="Module" FontSize="25"
+            <TextBlock x:Name="Module" FontSize="25" Foreground="Brown"
                        Style="{StaticResource TextBlock}"
-                       HorizontalAlignment="Left" 
-                       Text="{Binding}"/>
+                       Text="{Binding Path=NameSoft}"/>
         </StackPanel>
 
         <Image Grid.Column="1" x:Name="ImagePol" Source="{Binding}"/>
