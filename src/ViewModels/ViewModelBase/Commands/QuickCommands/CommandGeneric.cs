@@ -38,6 +38,7 @@ namespace ViewModelBase.Commands.QuickCommands
 
         void ICommand.Execute(object? parameter) =>
             ((Action)(() => Execute((T?)parameter))).FireAndForgetSafe(_errorHandler);
+
         #endregion
     }
 }

@@ -1,7 +1,11 @@
 ﻿using _DemoViewModel;
 using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Drawing;
+using System.Windows.Media.Imaging;
+using System.Linq;
 
 namespace DemoView
 {
@@ -29,15 +33,9 @@ namespace DemoView
             if (sender is not ComboBox box || box.SelectedItem == null) return;
             _context.SelectNameCommand?.Execute((String)NamePollutionCB.SelectedItem);
         }
-
-        private void ExportImageBtn_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
         private void VisualPollutionBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+            ImagePol.Source = new BitmapImage(new Uri(string.Join("", _context.LinkImages), UriKind.Absolute));
         }
     }
 }

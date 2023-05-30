@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using BaseData.DataProviders.EntityFramework.Contexts;
+using BaseData.Entities;
+using Microsoft.EntityFrameworkCore;
 using ViewModelBase;
 using ViewModelBase.Commands.AsyncCommands;
 using ViewModelBase.Commands.QuickCommands;
@@ -30,10 +33,9 @@ namespace _DemoViewModel
         private void SelectName (string name)
         {
             LinkImages = new ObservableCollection<string>(_model.PollutionFields.Where(r => r.Name == name).Select(r => r.LinkImage));
+            SoftModules = new ObservableCollection<SoftModule>(_model.PollutionFields.Where(f => f.Name == name).Select(f => f.SoftModule));
             OnPropertyChanged(nameof(LinkImages));
         }
-
-        
 
 
         public Command<DateTime> SelectDateCommand { get; }
@@ -44,6 +46,8 @@ namespace _DemoViewModel
         public ObservableCollection<string> Names { get; private set; } = new ObservableCollection<string>();
 
         public ObservableCollection<string> LinkImages { get; private set; } = new ObservableCollection<string>();
+
+        public ObservableCollection<SoftModule> SoftModules { get; private set;} = new ObservableCollection<SoftModule>();
 
        
     }
