@@ -20,51 +20,53 @@
             <RowDefinition Height="0.1*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-            
 
-        <!--<Border Grid.Column="1" Grid.RowSpan="2" BorderThickness="1,0" BorderBrush="Gray"/>-->
 
-        <ListView Grid.Row="1" Margin="10" ItemsSource="{Binding Monitors}" Style="{StaticResource ListViewStyle1}">
+        <ListView Grid.Row="1" Margin="10" x:Name="Monitorings" ItemsSource="{Binding Monitorings}" Style="{StaticResource ListViewStyle1}">
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
-                    <!--<GridViewColumn DisplayMemberBinding="{Binding MonitoringTypeID}" 
-                                    Header="Тип мониторинга" Width="Auto"/>-->
+                    <GridViewColumn x:Name="Type" DisplayMemberBinding="{Binding Path=TypesID}"
+                                    Header="Тип мониторинга" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Date, StringFormat=d}" 
                                     Header="Дата"  Width="Auto" />
                     <GridViewColumn DisplayMemberBinding="{Binding PointName}" 
                                     Header="Точка на карте" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding PostName}" 
                                     Header="Пост" Width="Auto"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding SubstanceID}" 
+                    <GridViewColumn x:Name="Name" DisplayMemberBinding="{Binding Path=HarmName}"
                                     Header="Вредное вещество" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Quantity}" 
                                     Header="Количество" Width="Auto"/>
                 </GridView>
             </ListView.View>
         </ListView>
-
-        <Button x:Name="AddMonitoringBtn"  Width="32" Height="32"
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left">
+            <Button x:Name="AddMonitoringBtn"  Width="32" Height="32"
                 Click="AddMonitoringBtn_Click" Grid.Row="0"
-                HorizontalAlignment="Left" Margin="30,10,0,0">
-            <Button.Background>
-                <ImageBrush ImageSource="Images\create.png"/>
-            </Button.Background>
-        </Button>
+                    Margin="20">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images\create.png"/>
+                </Button.Background>
+            </Button>
 
             <Button Width="32" Height="32" x:Name="UpdateMonitoringBtn"
                     Click="UpdateMonitoringBtn_Click" Grid.Row="0"
-                    HorizontalAlignment="Left" Margin="80,10,0,0">
+                    Margin="0,20,20,20">
                 <Button.Background>
                     <ImageBrush ImageSource="Images\edit.png"/>
                 </Button.Background>
             </Button>
 
-        <Button  Width="32" Height="32" x:Name="DeleteMonitoringBtn"
-                Click="DeleteMonitoringBtn_Click"  Grid.Row="0"
-                HorizontalAlignment="Left" Margin="130,10,0,0">
-            <Button.Background>
-                <ImageBrush ImageSource="Images\delete.png"/>
-            </Button.Background>
-        </Button>
+            <Button  Width="32" Height="32" x:Name="DeleteMonitoringBtn"
+                Click="DeleteMonitoringBtn_Click"  Grid.Row="0">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images\delete.png"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+        <ComboBox Opacity="0.7" Style="{StaticResource ComboBox}" 
+            x:Name="TypeMonitorCB" ItemsSource="{Binding Path=Types}"
+            SelectedItem="{Binding SelectRowType}" Grid.Row="0" HorizontalAlignment="Right"
+            SelectionChanged="TypeMonitorCB_SelectionChanged"  Margin="20"/>
     </Grid>
 </Window>

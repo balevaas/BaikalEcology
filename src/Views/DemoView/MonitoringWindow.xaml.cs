@@ -43,5 +43,11 @@ namespace DemoView
         {
 
         }
+
+        private void TypeMonitorCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //if (sender is not ComboBox box || box.SelectedItem == null) return;
+            //_context.GetTypesCommand?.Execute((string)TypeMonitorCB.SelectedItem);
+        }
     }
 }

@@ -65,8 +65,7 @@
                        FontSize="25" TextAlignment="Left" Text="Источник:"/>
             <!--В данном текст блоке отображается название источника (модуль)-->
             <TextBlock x:Name="Module" FontSize="25" Foreground="Brown"
-                       Style="{StaticResource TextBlock}"
-                       Text="{Binding Path=NameSoft}"/>
+                       Style="{StaticResource TextBlock}"/>
         </StackPanel>
 
         <Image Grid.Column="1" x:Name="ImagePol" Source="{Binding}"/>
