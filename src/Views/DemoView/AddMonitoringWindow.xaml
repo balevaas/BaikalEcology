@@ -79,27 +79,26 @@
         </ComboBox>
 
         <DatePicker Grid.Row="2" Grid.Column="1" Opacity="0.7"
-                 Style="{StaticResource DatePicker}" Margin="15"
-                 Text="{Binding Dates,  StringFormat=d}" FontSize="20"
-                 >
+                    Style="{StaticResource DatePicker}" Margin="15"
+                    FontSize="20"/>
 
-        </DatePicker>
         <TextBox Grid.Row="3" Grid.Column="1" Opacity="0.7"
-                 Style="{StaticResource TextBox}" Margin="15"
-                 x:Name="PointName" Text="{Binding Path=Points}">
+                 Style="{StaticResource TextBox}" 
+                 Margin="15" x:Name="PointName" FontSize="20"
+                 Text="{Binding NamePoint, UpdateSourceTrigger=PropertyChanged}"/>
 
-        </TextBox>
         <TextBox Grid.Row="4" Grid.Column="1" Opacity="0.7"
-                 Style="{StaticResource TextBox}" Margin="15">
+                 Style="{StaticResource TextBox}" Margin="15"
+                 x:Name="PostName" FontSize="20"
+                 Text="{Binding NamePost, UpdateSourceTrigger=PropertyChanged}"/>
 
-        </TextBox>
         <TextBox Grid.Row="6" Grid.Column="1" Opacity="0.7"
-                 Style="{StaticResource TextBox}" Margin="15">
+                 Style="{StaticResource TextBox}" FontSize="20"
+                 Margin="15" x:Name="QuantityNum" 
+                 Text="{Binding QuantityNum, UpdateSourceTrigger=PropertyChanged}"/>
 
-        </TextBox>
-        
         <Button Style="{StaticResource Button}" Grid.Row="7" Grid.ColumnSpan="2"
-                Margin="20" HorizontalAlignment="Center" x:Name="AddBtn" Click="AddBtn_Click">
+                Margin="20" HorizontalAlignment="Center" Command="{Binding SaveData}">
             <Button.Content>
                 <TextBlock Style="{StaticResource TextBlock}" FontSize="20"
                                Foreground="Black" Text="Сохранить"/>

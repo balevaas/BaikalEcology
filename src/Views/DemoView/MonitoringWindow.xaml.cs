@@ -37,11 +37,6 @@ namespace DemoView
             add.Show();
         }
 
-        private void UpdateMonitoringBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void DeleteMonitoringBtn_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Вы действительно хотите удалить эту строку?",
@@ -51,12 +46,6 @@ namespace DemoView
             {
                 // Do something here
             }
-        }
-
-        private void TypeMonitorCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //if (sender is not ComboBox box || box.SelectedItem == null) return;
-            //_context.GetTypesCommand?.Execute((string)TypeMonitorCB.SelectedItem);
         }
     }
 }

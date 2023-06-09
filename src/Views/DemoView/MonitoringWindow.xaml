@@ -6,7 +6,7 @@
         xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"
         xmlns:local="clr-namespace:DemoView"
         mc:Ignorable="d"
-        Title="Мониторинговые данные" Height="800" Width="1400" WindowStartupLocation="CenterScreen">
+        Title="Мониторинговые данные" Height="800" Width="1300" WindowStartupLocation="CenterScreen">
     <!--Фоновое изображение-->
     <Window.Background>
         <ImageBrush ImageSource="Images\image.jpg" Opacity="0.4"/>
@@ -48,18 +48,6 @@
                                         Click="DeleteMonitoringBtn_Click">
                                     <Button.Background>
                                         <ImageBrush ImageSource="Images\delete.png"/>
-                                    </Button.Background>
-                                </Button>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn>
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Width="32" Height="32" x:Name="UpdateMonitoringBtn"
-                                        Click="UpdateMonitoringBtn_Click" Grid.Row="0">
-                                    <Button.Background>
-                                        <ImageBrush ImageSource="Images\edit.png"/>
                                     </Button.Background>
                                 </Button>
                             </DataTemplate>

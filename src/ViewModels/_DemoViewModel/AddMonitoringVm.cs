@@ -1,4 +1,5 @@
 ﻿using BaseData.DataProviders.EntityFramework.Contexts;
+using BaseData.Entities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,7 +14,13 @@ namespace _DemoViewModel
     public class AddMonitoringVm : ViewModel
     {
         private readonly DataContext _model;
-        public int HarmID, TypeID;
+        public ObservableCollection<string> Types { get; set; }
+        public ObservableCollection<string> Harms { get; set; }
+        public ObservableCollection<int> TypeId { get; set; }
+        public ObservableCollection<int> HarmId { get; set; }
+        public Command<string> SelectTypeCommand { get; }
+        public Command<string> SelectHarmCommand { get; }
+                
         public AddMonitoringVm(DataContext model) 
         { 
             _model = model;
@@ -22,8 +29,10 @@ namespace _DemoViewModel
 
             SelectTypeCommand = new Command<string>(SelectType);
             SelectHarmCommand = new Command<string>(SelectHarm);
+            SaveData = new Command(SaveMonitoring);
         }
 
+        public int HarmID;
         private void SelectHarm(string obj)
         {
             HarmId = new ObservableCollection<int>(_model.HarmSubstances.Where(p => p.Name == obj).Select(p => p.ID));
@@ -31,22 +40,68 @@ namespace _DemoViewModel
             OnPropertyChanged(nameof(HarmID));
         }
 
+        public int TypeID;
         private void SelectType(string obj)
         {
             TypeId = new ObservableCollection<int>(_model.MonitoringTypes.Where(p => p.Type == obj).Select(p => p.ID));
-          //  TypeID = new ObservableCollection<int>(_model.HarmSubstances.Add(TypeID));
-            OnPropertyChanged(nameof(TypeId));
+            TypeID = TypeId.ElementAt(0);
+            OnPropertyChanged(nameof(TypeID));
+        }        
+
+        private string namePoint;
+        public string NamePoint
+        {
+            get { return namePoint; }
+            set {
+                namePoint = value;
+                OnPropertyChanged(nameof(NamePoint));
+            }
         }
 
-        public ObservableCollection<string> Types { get; set; }
-        public ObservableCollection<string> Harms { get; set; }
+        private string namePost;
+        public string NamePost
+        {
+            get => namePost; 
+            set { 
+                namePost = value; 
+                OnPropertyChanged(nameof(NamePost));
+            }
+        }
 
-        public ObservableCollection<int> TypeId { get; set; }
-        public ObservableCollection<int> HarmId { get; set; }
+        private double quantityNum;
+        public double QuantityNum
+        {
+            get => quantityNum;
+            set
+            {
+                quantityNum = value;
+                OnPropertyChanged(nameof(QuantityNum));
+            }
+        }
 
-        public Command<string> SelectTypeCommand { get; }
-        public Command<string> SelectHarmCommand { get; }
+        private DateTime date;
+        public DateTime Date
+        {
+            get => date;
+            set
+            {
+                date = value;
+                OnPropertyChanged(nameof(Date));
+            }
+        }
 
+        public ObservableCollection<Monitoring> Monitorings { get; set; }
+        public Monitoring Monitor;
+
+        public Command SaveData { get; set; }
+        private void SaveMonitoring()
+        {
+            //Monitor.Date = this.Date;
+            Monitor.PointName = this.namePoint;
+            Monitor.PostName = this.NamePost;
+            Monitor.Quantity = this.QuantityNum;
+            _model.SaveChanges();
+        }
         
     }
 }

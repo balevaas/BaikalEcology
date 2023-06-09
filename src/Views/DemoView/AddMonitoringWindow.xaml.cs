@@ -41,10 +41,5 @@ namespace DemoView
             _context.SelectHarmCommand?.Execute((string)HarmCB.SelectedItem);
         }
 
-
-        private void AddBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
