@@ -9,7 +9,9 @@ public static class Strings
     public const string
         Sqlite = "Sqlite",
         SqlExpress = "SqlExpress",
-        Globa = "Globa";
+        Globa = "Globa",
+        Slyusar = "Slyusar",
+        Pinigin = "Pinigin";
 
     /// <summary>
     /// Получение строки подключения к БД

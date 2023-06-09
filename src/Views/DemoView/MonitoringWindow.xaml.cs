@@ -13,6 +13,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static _DemoViewModel.MonitoringVm;
+using ViewModelBase.Commands.QuickCommands;
 
 namespace DemoView
 {
@@ -31,7 +33,8 @@ namespace DemoView
 
         private void AddMonitoringBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            AddMonitoringWindow add = new AddMonitoringWindow();
+            add.Show();
         }
 
         private void UpdateMonitoringBtn_Click(object sender, RoutedEventArgs e)
@@ -41,7 +44,13 @@ namespace DemoView
 
         private void DeleteMonitoringBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            if (MessageBox.Show("Вы действительно хотите удалить эту строку?",
+                    "Удаление данных",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                // Do something here
+            }
         }
 
         private void TypeMonitorCB_SelectionChanged(object sender, SelectionChangedEventArgs e)

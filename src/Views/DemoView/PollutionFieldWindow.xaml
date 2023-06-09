@@ -34,7 +34,7 @@
             <!--Комбобокс для выбора даты-->
             <ComboBox Opacity="0.7" Style="{StaticResource ComboBox}" Margin="20,0,10,0" 
                       x:Name="DatePollutionCB" ItemsSource="{Binding Path=Dates}"
-                      SelectedItem="{Binding Path=SelectRowDate}" 
+                      SelectedItem="{Binding Path=SelectRowDate}" FontSize="25"
                       SelectionChanged="DatePollutionCB_SelectionChanged"/>
 
             <TextBlock Style="{StaticResource TextBlock}" FontSize="25"
@@ -44,11 +44,12 @@
             <ComboBox Opacity="0.7" Style="{StaticResource ComboBox}"  Margin="20,0,10,0"
                       x:Name="NamePollutionCB" SelectedItem="{Binding Path=SelectRowName}"
                       ItemsSource="{Binding Path=Names, UpdateSourceTrigger=PropertyChanged}"
-                      SelectionChanged="NamePollutionCB_SelectionChanged"/>
+                      SelectionChanged="NamePollutionCB_SelectionChanged" FontSize="25"
+                      />
 
             <!--Кнопка "Отобразить поле"-->
             <Button Margin="20,30,10,0" x:Name="VisualPollutionBtn" 
-                    Click="VisualPollutionBtn_Click">
+                    Click="VisualPollutionBtn_Click" Style="{StaticResource Button}">
                 <Button.Content>
                     <TextBlock Style="{StaticResource TextBlock}" FontSize="25"
                                Foreground="Black" Text="Отобразить поле"/>

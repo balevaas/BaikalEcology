@@ -7,7 +7,7 @@
         xmlns:vm="clr-namespace:_DemoViewModel;assembly=_DemoViewModel"
         mc:Ignorable="d"
         Title="Экология Байкальского региона" WindowStartupLocation="CenterScreen"
-        Height="1000" Width="1400">
+        Height="800" Width="1400">
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
@@ -17,14 +17,14 @@
     <Grid Margin="20">
         
         <StackPanel>
-            <TextBlock Style="{StaticResource TextBlock}" FontSize="40"
+            <TextBlock Style="{StaticResource TextBlock}" FontSize="35"
                    VerticalAlignment="Top" HorizontalAlignment="Center"
                    Foreground="#e6dfd7">
             Информационно-аналитическая система «Экология Байкальского региона»
             </TextBlock>
         </StackPanel>
 
-        <Grid Margin="20,60,25,780">
+        <Grid Margin="20,60">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -49,7 +49,7 @@
                     Height="{Binding ElementName=WindRoseBtn, Path=ActualHeight}"
                     Width="{Binding ElementName=Correlation2Btn1, Path=ActualWidth}">
                 <TextBlock Style="{StaticResource TextBlock}"
-                           FontSize="29" Foreground="Black">
+                           FontSize="25" Foreground="Black">
                     Оценка техногенного загрязнения территорий по данным мониторинговых исследований
                 </TextBlock>
             </Border>
@@ -81,14 +81,14 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             
-            <TextBlock Style="{StaticResource TextBlock}" FontSize="30"
+            <TextBlock Style="{StaticResource TextBlock}" FontSize="25"
                        Grid.Column="0" Grid.Row="0"
                        VerticalAlignment="Center" HorizontalAlignment="Center"
                        Foreground="#e6dfd7">
                 По данным наземных систем мониторинга
             </TextBlock>
             
-            <TextBlock Style="{StaticResource TextBlock}" FontSize="30"
+            <TextBlock Style="{StaticResource TextBlock}" FontSize="25"
                        Grid.Column="1" Grid.Row="0"
                        VerticalAlignment="Center" HorizontalAlignment="Center"
                        Foreground="#e6dfd7">
@@ -102,7 +102,7 @@
                     Width="{Binding ElementName=Correlation2Btn1, Path=ActualWidth}"
                     Height="{Binding ElementName=Correlation2Btn1, Path=ActualHeight}">
                 <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}" FontSize="25">
+                    <TextBlock Style="{StaticResource TextBlock}" FontSize="20">
                         Расчет и визуализация полей концентрации бенз(а)пирена в атмосферном воздухе городов по данным сетевых измерений
                     </TextBlock>
                 </Button.Content>
@@ -115,7 +115,7 @@
                     Width="{Binding ElementName=Correlation2Btn1, Path=ActualWidth}"
                     Height="{Binding ElementName=Correlation2Btn1, Path=ActualHeight}">
                 <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}" FontSize="25">
+                    <TextBlock Style="{StaticResource TextBlock}" FontSize="20">
                         Оценка пылевого загрязнения местности по данным мультиспектральных космоснимков высокого разрешения
                     </TextBlock>
                 </Button.Content>
@@ -128,13 +128,13 @@
                     Width="{Binding ElementName=Correlation2Btn1, Path=ActualWidth}"
                     Height="{Binding ElementName=Correlation2Btn1, Path=ActualHeight}">
                 <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}" FontSize="25">
+                    <TextBlock Style="{StaticResource TextBlock}" FontSize="20">
                         Расчет и визуализация полей ртутного загрязнения по данным биомониторинга на территориях городов
                     </TextBlock>
                 </Button.Content>
             </Button>
 
-            <TextBlock Style="{StaticResource TextBlock}" FontSize="30"
+            <TextBlock Style="{StaticResource TextBlock}" FontSize="25"
                        Grid.Column="1" Grid.Row="2"
                        VerticalAlignment="Center" HorizontalAlignment="Center"
                        Foreground="#e6dfd7">
@@ -148,7 +148,7 @@
                     Width="{Binding ElementName=Correlation2Btn1, Path=ActualWidth}"
                     Height="{Binding ElementName=Correlation2Btn1, Path=ActualHeight}">
                 <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}" FontSize="25">
+                    <TextBlock Style="{StaticResource TextBlock}" FontSize="20">
                         Оценка загрязнения территорий в зоне влияния промышленного города с использованием модели распространения примеси от площадного источника
                     </TextBlock>
                 </Button.Content>
@@ -161,7 +161,7 @@
                     Width="{Binding ElementName=Correlation2Btn1, Path=ActualWidth}"
                     Height="{Binding ElementName=Correlation2Btn1, Path=ActualHeight}">
                 <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}" FontSize="25">
+                    <TextBlock Style="{StaticResource TextBlock}" FontSize="20">
                         Выявление корреляционных зависимостей между измерениями бенз(а)пирена в атмосферном воздухе городов и характеристиками ветрового режима
                     </TextBlock>
                 </Button.Content>
@@ -174,7 +174,7 @@
                     Width="{Binding ElementName=Correlation2Btn1, Path=ActualWidth}"
                     Height="{Binding ElementName=Correlation2Btn1, Path=ActualHeight}">
                 <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}" FontSize="25">
+                    <TextBlock Style="{StaticResource TextBlock}" FontSize="20">
                         Расчет выпадений загрязняющих примесей на территориях городов с использованием минимаксных моделей оценивания параметров эмиссии точечных и площадных источников
                     </TextBlock>
                 </Button.Content>
@@ -185,7 +185,7 @@
                     Name="Correlation2Btn1" Command="{Binding StartBiryukov}"
                     CommandParameter="" Margin="10,10,10,10">
                 <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}" FontSize="25">
+                    <TextBlock Style="{StaticResource TextBlock}" FontSize="20">
                         Получение корреляционных зависимостей между уровнями рассчитанного техногенного регионального загрязнения и спектральными характеристиками  в точках местности с использованием наземных и спутниковых измерений
                     </TextBlock>
                 </Button.Content>

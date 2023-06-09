@@ -1,31 +1,48 @@
 ﻿using BaseData.DataProviders.EntityFramework.Contexts;
-using BaseData.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ViewModelBase;
-using ViewModelBase.Commands.QuickCommands;
 
 namespace _DemoViewModel
 {
     public class MonitoringVm : ViewModel
     {
         private readonly DataContext _model;
-        public string TypesID;
-        public string HarmName;
-        public int IDMon;
+        public int IdMon;
+        public int IdDto;
 
-        public MonitoringVm (DataContext model)
+        public MonitoringVm(DataContext model)
         {
             _model = model;
-            Monitorings = new(_model.Monitorings);
+            Monitorings = new(_model.Monitorings.Include(m => m.MonitoringType).Include(m => m.Substance).Select(m =>
+                new MonitoringDto()
+                {
+                    Id = m.ID,
+                    MonitoringType = m.MonitoringType.ToString(),
+                    Date = m.Date,
+                    PointName = m.PointName,
+                    PostName = m.PostName,
+                    HarmName = m.Substance.ToString(),
+                    Quantity = m.Quantity
+                }));
 
         }
 
-        public ObservableCollection<Monitoring> Monitorings { get; }
-        public ObservableCollection<MonitoringType> MonitoringTypes { get; }
+
+        public ObservableCollection<MonitoringDto> Monitorings { get; }
+        public class MonitoringDto
+        {
+            public int Id { get; set; }
+            public string MonitoringType { get; set; }
+            public DateTime Date { get; set; }
+            public string PointName { get; set; }
+            public string PostName { get; set; }
+            public string HarmName { get; set; }
+            public double Quantity { get; set; }
+        }
+
+
     }
 }

@@ -15,9 +15,9 @@ namespace DemoView
             //BenzopyreneBtn.CommandParameter = GetPath(Berezina);
             //DustBtn.CommandParameter = GetPath(Safronov);
             //MercuryBtn.CommandParameter = GetPath(Markov);
-            //ImpuritiesBtn.CommandParameter = GetPath(Slyusar);
+            ImpuritiesBtn.CommandParameter = GetPath(Slyusar);
             //Correlation1Btn1.CommandParameter = GetPath(Pavlov);
-            //MinimaxBtn1.CommandParameter = GetPath(Pinigin);
+            MinimaxBtn1.CommandParameter = GetPath(Pinigin);
             //Correlation2Btn1.CommandParameter = GetPath(Biryukov);
         }
 

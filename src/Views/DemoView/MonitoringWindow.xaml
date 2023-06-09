@@ -3,9 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"
         xmlns:local="clr-namespace:DemoView"
         mc:Ignorable="d"
-        Title="Мониторинговые данные" Height="800" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Мониторинговые данные" Height="800" Width="1400" WindowStartupLocation="CenterScreen">
     <!--Фоновое изображение-->
     <Window.Background>
         <ImageBrush ImageSource="Images\image.jpg" Opacity="0.4"/>
@@ -25,7 +26,9 @@
         <ListView Grid.Row="1" Margin="10" x:Name="Monitorings" ItemsSource="{Binding Monitorings}" Style="{StaticResource ListViewStyle1}">
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
-                    <GridViewColumn x:Name="Type" DisplayMemberBinding="{Binding Path=TypesID}"
+                    <GridViewColumn x:Name="Id" DisplayMemberBinding="{Binding Id}"
+                                    Header="Номер" Width="Auto"/>
+                    <GridViewColumn x:Name="Type" DisplayMemberBinding="{Binding MonitoringType}"
                                     Header="Тип мониторинга" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Date, StringFormat=d}" 
                                     Header="Дата"  Width="Auto" />
@@ -33,10 +36,35 @@
                                     Header="Точка на карте" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding PostName}" 
                                     Header="Пост" Width="Auto"/>
-                    <GridViewColumn x:Name="Name" DisplayMemberBinding="{Binding Path=HarmName}"
+                    <GridViewColumn x:Name="Name" DisplayMemberBinding="{Binding HarmName}"
                                     Header="Вредное вещество" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Quantity}" 
                                     Header="Количество" Width="Auto"/>
+                    <GridViewColumn>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Width="32" Height="32" x:Name="DeleteMonitoringBtn"
+                                        Grid.Row="0"
+                                        Click="DeleteMonitoringBtn_Click">
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="Images\delete.png"/>
+                                    </Button.Background>
+                                </Button>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Width="32" Height="32" x:Name="UpdateMonitoringBtn"
+                                        Click="UpdateMonitoringBtn_Click" Grid.Row="0">
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="Images\edit.png"/>
+                                    </Button.Background>
+                                </Button>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -48,25 +76,6 @@
                     <ImageBrush ImageSource="Images\create.png"/>
                 </Button.Background>
             </Button>
-
-            <Button Width="32" Height="32" x:Name="UpdateMonitoringBtn"
-                    Click="UpdateMonitoringBtn_Click" Grid.Row="0"
-                    Margin="0,20,20,20">
-                <Button.Background>
-                    <ImageBrush ImageSource="Images\edit.png"/>
-                </Button.Background>
-            </Button>
-
-            <Button  Width="32" Height="32" x:Name="DeleteMonitoringBtn"
-                Click="DeleteMonitoringBtn_Click"  Grid.Row="0">
-                <Button.Background>
-                    <ImageBrush ImageSource="Images\delete.png"/>
-                </Button.Background>
-            </Button>
         </StackPanel>
-        <ComboBox Opacity="0.7" Style="{StaticResource ComboBox}" 
-            x:Name="TypeMonitorCB" ItemsSource="{Binding Path=Types}"
-            SelectedItem="{Binding SelectRowType}" Grid.Row="0" HorizontalAlignment="Right"
-            SelectionChanged="TypeMonitorCB_SelectionChanged"  Margin="20"/>
     </Grid>
 </Window>

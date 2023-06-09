@@ -63,7 +63,7 @@
         <!--Стиль TextBox-->
         <Style x:Key="TextBox" TargetType="TextBox">
             <Setter Property="FontFamily" Value="Sitka Banner"/>
-            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Background" Value="#FFEAE4"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Foreground" Value="Black"/>
         </Style>
@@ -71,8 +71,14 @@
         <!--Стиль ComboBox-->
         <Style x:Key="ComboBox" TargetType="ComboBox">
             <Setter Property="FontFamily" Value="Sitka Banner"/>
-            <Setter Property="FontSize" Value="25"/>
             <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+
+        <Style x:Key="DatePicker" TargetType="DatePicker">
+            <Setter Property="FontFamily" Value="Sitka Banner"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="#FFEAE4"/>
             <Setter Property="Foreground" Value="Black"/>
         </Style>
 
