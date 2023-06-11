@@ -29,17 +29,9 @@ namespace DemoView
             DataContext = _context;
         }
 
-        private void TypeCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            if (sender is not ComboBox box || box.SelectedItem == null) return;
-            _context.SelectTypeCommand?.Execute((string)TypeCB.SelectedItem);
-        }
 
-        private void HarmCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (sender is not ComboBox box || box.SelectedItem == null) return;
-            _context.SelectHarmCommand?.Execute((string)HarmCB.SelectedItem);
         }
-
     }
 }

@@ -23,7 +23,8 @@
         </Grid.RowDefinitions>
 
 
-        <ListView Grid.Row="1" Margin="10" x:Name="Monitorings" ItemsSource="{Binding Monitorings}" Style="{StaticResource ListViewStyle1}">
+        <ListView Grid.Row="1" Margin="10" x:Name="Monitorings" ItemsSource="{Binding Monitorings}" Style="{StaticResource ListViewStyle1}"
+                  SelectedItem="{Binding SelectedItem, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}">
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
                     <GridViewColumn x:Name="Id" DisplayMemberBinding="{Binding Id}"
@@ -36,7 +37,7 @@
                                     Header="Точка на карте" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding PostName}" 
                                     Header="Пост" Width="Auto"/>
-                    <GridViewColumn x:Name="Name" DisplayMemberBinding="{Binding HarmName}"
+                    <GridViewColumn x:Name="HarmName" DisplayMemberBinding="{Binding HarmName}"
                                     Header="Вредное вещество" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Quantity}" 
                                     Header="Количество" Width="Auto"/>
@@ -44,8 +45,7 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Width="32" Height="32" x:Name="DeleteMonitoringBtn"
-                                        Grid.Row="0"
-                                        Click="DeleteMonitoringBtn_Click">
+                                        Grid.Row="0" Click="DeleteMonitoringBtn_Click">
                                     <Button.Background>
                                         <ImageBrush ImageSource="Images\delete.png"/>
                                     </Button.Background>
@@ -58,12 +58,14 @@
         </ListView>
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left">
             <Button x:Name="AddMonitoringBtn"  Width="32" Height="32"
-                Click="AddMonitoringBtn_Click" Grid.Row="0"
-                    Margin="20">
+                    Click="AddMonitoringBtn_Click" Grid.Row="0"
+                    Margin="20,0,10,0">
                 <Button.Background>
                     <ImageBrush ImageSource="Images\create.png"/>
                 </Button.Background>
             </Button>
+            <TextBlock Style="{StaticResource TextBlock}"
+                       Text="Добавить" FontSize="20"/>
         </StackPanel>
     </Grid>
 </Window>

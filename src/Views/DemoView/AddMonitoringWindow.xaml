@@ -20,13 +20,13 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition/>          
-            <RowDefinition/>         
-            <RowDefinition/>         
-            <RowDefinition/>         
-            <RowDefinition/>         
-            <RowDefinition/>         
-            <RowDefinition/>                             
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Row="0">
             <Border Style="{StaticResource Border}" Margin="10"
@@ -37,7 +37,7 @@
                 </TextBlock>
             </Border>
         </StackPanel>
-        
+
         <TextBlock Style="{StaticResource TextBlock}" Grid.Row="1" Grid.Column="0"
                    FontSize="20" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right"
@@ -49,11 +49,11 @@
         <TextBlock Style="{StaticResource TextBlock}" Grid.Row="3" Grid.Column="0"
                    FontSize="20" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right"
-                   Text="Точка:"/>
+                   Text="Наименование точки:"/>
         <TextBlock Style="{StaticResource TextBlock}" Grid.Row="4" Grid.Column="0"
                    FontSize="20" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right"
-                   Text="Пост:"/>
+                   Text="Наименование поста:"/>
         <TextBlock Style="{StaticResource TextBlock}" Grid.Row="5" Grid.Column="0"
                    FontSize="20" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right"
@@ -65,20 +65,19 @@
 
         <ComboBox Grid.Row="1" Grid.Column="1" Opacity="0.7"
                   Style="{StaticResource ComboBox}" Margin="15"
-                  FontSize="20" x:Name="TypeCB" SelectedItem="{Binding Path=SelectRowType}"
-                  ItemsSource="{Binding Path=Types, UpdateSourceTrigger=PropertyChanged}"
-                  SelectionChanged="TypeCB_SelectionChanged"> 
-            
+                  FontSize="20" x:Name="TypeCB" 
+                  SelectedItem="{Binding Path=SelectType, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                  ItemsSource="{Binding Path=Types, UpdateSourceTrigger=PropertyChanged}">
+
         </ComboBox>
         <ComboBox Grid.Row="5" Grid.Column="1" Opacity="0.7"
                   Style="{StaticResource ComboBox}" Margin="15"
-                  FontSize="20" x:Name="HarmCB" SelectedItem="{Binding Path=SelectRowHarm}"
-                  ItemsSource="{Binding Path=Harms, UpdateSourceTrigger=PropertyChanged}"
-                  SelectionChanged="HarmCB_SelectionChanged">
+                  FontSize="20" x:Name="HarmCB"
+                  SelectedItem="{Binding Path=SelectHarmSubstance, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                  ItemsSource="{Binding Path=Harms, UpdateSourceTrigger=PropertyChanged}"/>
 
-        </ComboBox>
-
-        <DatePicker Grid.Row="2" Grid.Column="1" Opacity="0.7"
+        <DatePicker Grid.Row="2" Grid.Column="1" Opacity="0.7" 
+                    SelectedDate="{Binding Date}"
                     Style="{StaticResource DatePicker}" Margin="15"
                     FontSize="20"/>
 
@@ -97,13 +96,15 @@
                  Margin="15" x:Name="QuantityNum" 
                  Text="{Binding QuantityNum, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Button Style="{StaticResource Button}" Grid.Row="7" Grid.ColumnSpan="2"
-                Margin="20" HorizontalAlignment="Center" Command="{Binding SaveData}">
+        <Button Style="{StaticResource Button}" Grid.Row="7" Grid.ColumnSpan="2" Grid.Column="0"
+                Margin="20" HorizontalAlignment="Center" 
+                Click="ButtonBase_OnClick"  Command="{Binding SaveDataCommand}">
             <Button.Content>
                 <TextBlock Style="{StaticResource TextBlock}" FontSize="20"
                                Foreground="Black" Text="Сохранить"/>
             </Button.Content>
         </Button>
+
 
     </Grid>
 </Window>

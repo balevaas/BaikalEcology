@@ -33,18 +33,18 @@ namespace DemoView
 
         private void AddMonitoringBtn_Click(object sender, RoutedEventArgs e)
         {
-            AddMonitoringWindow add = new AddMonitoringWindow();
+            AddMonitoringWindow add = new();
             add.Show();
         }
 
-        private void DeleteMonitoringBtn_Click(object sender, RoutedEventArgs e)
+        private async void DeleteMonitoringBtn_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Вы действительно хотите удалить эту строку?",
                     "Удаление данных",
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                // Do something here
+                await _context.MonitoringDelete.ExecuteAsync();
             }
         }
     }

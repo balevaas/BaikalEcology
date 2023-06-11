@@ -5,103 +5,89 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using _DemoViewModel.DTO;
 using ViewModelBase;
 using ViewModelBase.Commands.QuickCommands;
+using Microsoft.EntityFrameworkCore;
+using ViewModelBase.Commands.AsyncCommands;
 
 namespace _DemoViewModel
 {
     public class AddMonitoringVm : ViewModel
     {
         private readonly DataContext _model;
-        public ObservableCollection<string> Types { get; set; }
-        public ObservableCollection<string> Harms { get; set; }
-        public ObservableCollection<int> TypeId { get; set; }
-        public ObservableCollection<int> HarmId { get; set; }
-        public Command<string> SelectTypeCommand { get; }
-        public Command<string> SelectHarmCommand { get; }
-                
-        public AddMonitoringVm(DataContext model) 
-        { 
+
+        public AddMonitoringVm(DataContext model)
+        {
             _model = model;
-            Types = new(model.MonitoringTypes.Select(p => p.Type));
-            Harms = new(model.HarmSubstances.Select(m => m.Name));
+            Types = new ObservableCollection<MonitoringType>(_model.MonitoringTypes);
+            Harms = new ObservableCollection<HarmSubstance>(_model.HarmSubstances);
 
-            SelectTypeCommand = new Command<string>(SelectType);
-            SelectHarmCommand = new Command<string>(SelectHarm);
-            SaveData = new Command(SaveMonitoring);
+            SaveDataCommand = new AsyncCommand(SaveData);
         }
 
-        public int HarmID;
-        private void SelectHarm(string obj)
+        public AsyncCommand SaveDataCommand { get; }
+
+        private async Task SaveData(CancellationToken _)
         {
-            HarmId = new ObservableCollection<int>(_model.HarmSubstances.Where(p => p.Name == obj).Select(p => p.ID));
-            HarmID = HarmId.ElementAt(0); 
-            OnPropertyChanged(nameof(HarmID));
+            if (SaveDataCommand == null || SelectType == null || SelectHarmSubstance == null || Date == null
+                || NamePoint == null || NamePost == null || QuantityNum == 0) return;
+            var monitor = new Monitoring()
+            {
+                MonitoringType = SelectType,
+                Date = Date.Value,
+                PointName = NamePoint,
+                PostName = NamePost,
+                Substance = SelectHarmSubstance,
+                Quantity = QuantityNum
+
+            };
+            await _model.Monitorings.AddAsync(monitor, _);
+            await _model.SaveChangesAsync(_);
         }
 
-        public int TypeID;
-        private void SelectType(string obj)
+
+        #region Single
+
+
+        private DateTime? _date;
+        public DateTime? Date
         {
-            TypeId = new ObservableCollection<int>(_model.MonitoringTypes.Where(p => p.Type == obj).Select(p => p.ID));
-            TypeID = TypeId.ElementAt(0);
-            OnPropertyChanged(nameof(TypeID));
-        }        
+            get => _date;
+            set => Set(ref _date, value);
+        }
 
         private string namePoint;
         public string NamePoint
         {
-            get { return namePoint; }
-            set {
-                namePoint = value;
-                OnPropertyChanged(nameof(NamePoint));
-            }
+            get => namePoint;
+            set => Set(ref namePoint, value);
         }
 
         private string namePost;
         public string NamePost
         {
-            get => namePost; 
-            set { 
-                namePost = value; 
-                OnPropertyChanged(nameof(NamePost));
-            }
+            get => namePost;
+            set => Set(ref namePost, value);
         }
 
         private double quantityNum;
         public double QuantityNum
         {
             get => quantityNum;
-            set
-            {
-                quantityNum = value;
-                OnPropertyChanged(nameof(QuantityNum));
-            }
+            set => Set(ref quantityNum, value);
         }
 
-        private DateTime date;
-        public DateTime Date
-        {
-            get => date;
-            set
-            {
-                date = value;
-                OnPropertyChanged(nameof(Date));
-            }
-        }
+        #endregion
 
-        public ObservableCollection<Monitoring> Monitorings { get; set; }
-        public Monitoring Monitor;
+        #region Combos
+        public ObservableCollection<MonitoringType> Types { get; set; }
+        public ObservableCollection<HarmSubstance> Harms { get; set; }
 
-        public Command SaveData { get; set; }
-        private void SaveMonitoring()
-        {
-            //Monitor.Date = this.Date;
-            Monitor.PointName = this.namePoint;
-            Monitor.PostName = this.NamePost;
-            Monitor.Quantity = this.QuantityNum;
-            _model.SaveChanges();
-        }
-        
+        public MonitoringType SelectType { get; set; }
+        public HarmSubstance SelectHarmSubstance { get; set; }
+        #endregion
     }
 }

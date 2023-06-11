@@ -6,14 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{722BA968-D58E-4C2D-B2B0-5CD203F6E59A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataModels", "DataModels", "{68899712-57E5-42CA-82DD-7A88163C152F}"
-	ProjectSection(SolutionItems) = preProject
-		Models\DataModels\readme.txt = Models\DataModels\readme.txt
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CalculationModels", "CalculationModels", "{2CD9D617-5834-4C7C-AA65-5005E180A251}"
-	ProjectSection(SolutionItems) = preProject
-		Models\CalculationModels\readme.txt = Models\CalculationModels\readme.txt
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViewModels", "ViewModels", "{B478A0CF-ECB7-4D9D-8435-F8340214D055}"
 EndProject
@@ -77,7 +69,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{68899712-57E5-42CA-82DD-7A88163C152F} = {722BA968-D58E-4C2D-B2B0-5CD203F6E59A}
-		{2CD9D617-5834-4C7C-AA65-5005E180A251} = {722BA968-D58E-4C2D-B2B0-5CD203F6E59A}
 		{F562BBB8-557D-4BD8-8231-A85D9EC6BF81} = {68899712-57E5-42CA-82DD-7A88163C152F}
 		{1E5F0585-54D6-46AF-8363-938B91923E7F} = {5DA37ABC-2271-4BBD-9C5E-A5BAF7480716}
 		{18195DB4-7E05-4501-A370-F532A19476AF} = {98614A82-5388-49D4-B0D2-88323CFFF9B9}

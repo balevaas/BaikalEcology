@@ -1,17 +1,17 @@
-﻿using BaseData.DataProviders.EntityFramework.Contexts;
+﻿using _DemoViewModel.DTO;
+using BaseData.DataProviders.EntityFramework.Contexts;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using ViewModelBase;
+using ViewModelBase.Commands.AsyncCommands;
 
 namespace _DemoViewModel
 {
     public class MonitoringVm : ViewModel
     {
+        // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
         private readonly DataContext _model;
-        public int IdMon;
-        public int IdDto;
 
         public MonitoringVm(DataContext model)
         {
@@ -27,22 +27,20 @@ namespace _DemoViewModel
                     HarmName = m.Substance.ToString(),
                     Quantity = m.Quantity
                 }));
-
+            MonitoringDelete = new AsyncCommand(async _ =>
+            {
+                if (SelectedItem == null) return;
+                _model.Monitorings.Remove(await _model.Monitorings.FirstOrDefaultAsync(m => m.ID == SelectedItem.Id));
+                Monitorings.Remove(SelectedItem);
+                await _model.SaveChangesAsync();
+                OnPropertyChanged(nameof(Monitorings));
+            });
         }
 
-
+        public MonitoringDto SelectedItem { private get; set; }
         public ObservableCollection<MonitoringDto> Monitorings { get; }
-        public class MonitoringDto
-        {
-            public int Id { get; set; }
-            public string MonitoringType { get; set; }
-            public DateTime Date { get; set; }
-            public string PointName { get; set; }
-            public string PostName { get; set; }
-            public string HarmName { get; set; }
-            public double Quantity { get; set; }
-        }
 
 
+        public AsyncCommand MonitoringDelete { get; }
     }
 }

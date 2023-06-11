@@ -4,6 +4,6 @@
     {
         public string Name { get; set; } = null!;
         public string Unit { get ; set; } = "мг/м3";
-        public override string ToString() => $"{Name}, ед. изм: {Unit}";                     
+        public override string ToString() => $"{Name} ({Unit})";                     
     }
 }
