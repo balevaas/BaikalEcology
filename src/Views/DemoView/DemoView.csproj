@@ -35,4 +35,8 @@
     <Resource Include="Images\image.jpg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Window\" />
+  </ItemGroup>
+
 </Project>

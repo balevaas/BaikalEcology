@@ -10,12 +10,12 @@ namespace _DemoViewModel
 {
     public class MonitoringVm : ViewModel
     {
-        // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
         private readonly DataContext _model;
 
         public MonitoringVm(DataContext model)
         {
             _model = model;
+            // Получение данных из таблицы Monitorings, заполнение таблицы
             Monitorings = new(_model.Monitorings.Include(m => m.MonitoringType).Include(m => m.Substance).Select(m =>
                 new MonitoringDto()
                 {
@@ -27,6 +27,7 @@ namespace _DemoViewModel
                     HarmName = m.Substance.ToString(),
                     Quantity = m.Quantity
                 }));
+            // Команда для удаления определенной строки из таблицы
             MonitoringDelete = new AsyncCommand(async _ =>
             {
                 if (SelectedItem == null) return;
@@ -39,8 +40,6 @@ namespace _DemoViewModel
 
         public MonitoringDto SelectedItem { private get; set; }
         public ObservableCollection<MonitoringDto> Monitorings { get; }
-
-
         public AsyncCommand MonitoringDelete { get; }
     }
 }

@@ -16,8 +16,7 @@
         </Grid.RowDefinitions>
         <Button Style="{StaticResource Button}" Grid.Row="0"
                 HorizontalAlignment="Center" Margin="10,30,10,30"
-                x:Name="PollutionFieldBtn" Click="PollutionFieldBtn_Click"
-               >
+                x:Name="PollutionFieldBtn" Click="PollutionFieldBtn_Click">
             <Button.Content>
                 <TextBlock Style="{StaticResource TextBlock}" FontSize="30">
                         Репозиторий результатов численного моделирования

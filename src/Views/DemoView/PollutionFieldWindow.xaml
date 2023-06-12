@@ -21,10 +21,7 @@
             <ColumnDefinition Width="0.3*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
-        <!--Полоса разделения колонок-->
-        <!--<Border Grid.Column="1" Grid.RowSpan="1" BorderThickness="1,0" BorderBrush="Gray"/>-->
-
+        
         <!--Поля из бд. Левая колонка. Верхняя часть-->
         <StackPanel Grid.Column="0" VerticalAlignment="Top">
 
@@ -49,17 +46,10 @@
 
             <!--Кнопка "Отобразить поле"-->
             <Button Margin="20,30,10,0" x:Name="VisualPollutionBtn" 
-                    Click="VisualPollutionBtn_Click" Style="{StaticResource Button}">
-                <Button.Content>
-                    <TextBlock Style="{StaticResource TextBlock}" FontSize="25"
-                               Foreground="Black" Text="Отобразить поле"/>
-                </Button.Content>
-            </Button>
-
-
+                    Click="VisualPollutionBtn_Click" Style="{StaticResource ButtonDataBase}"
+                    Content="Отобразить поле"/>
             
         </StackPanel>
-
         <!--Левая колонка. Нижняя часть-->
         <StackPanel VerticalAlignment="Bottom" Margin="20">
             <TextBlock Style="{StaticResource TextBlock}"
@@ -69,8 +59,6 @@
                        Style="{StaticResource TextBlock}"/>
         </StackPanel>
 
-        <Image Grid.Column="1" x:Name="ImagePol" Source="{Binding}"/>
-        <!--<TextBlock Grid.Column="1" Text="{Binding Path=GetImage}" VerticalAlignment="Bottom"/>-->
-        
+        <Image Grid.Column="1" x:Name="ImagePol" Source="{Binding}"/>               
     </Grid>
 </Window>

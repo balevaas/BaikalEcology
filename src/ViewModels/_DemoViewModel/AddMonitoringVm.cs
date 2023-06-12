@@ -22,18 +22,20 @@ namespace _DemoViewModel
         public AddMonitoringVm(DataContext model)
         {
             _model = model;
-            Types = new ObservableCollection<MonitoringType>(_model.MonitoringTypes);
-            Harms = new ObservableCollection<HarmSubstance>(_model.HarmSubstances);
+            Types = new ObservableCollection<MonitoringType>(_model.MonitoringTypes); // получение данных из таблицы MonitoringType
+            Harms = new ObservableCollection<HarmSubstance>(_model.HarmSubstances); // получение данных из таблицы HarmSubstance
 
             SaveDataCommand = new AsyncCommand(SaveData);
         }
 
-        public AsyncCommand SaveDataCommand { get; }
+        public AsyncCommand SaveDataCommand { get; } // Команда для сохранения новых данных
 
         private async Task SaveData(CancellationToken _)
         {
+            // Если какое-либо поле пустое - завершаем работу
             if (SaveDataCommand == null || SelectType == null || SelectHarmSubstance == null || Date == null
                 || NamePoint == null || NamePost == null || QuantityNum == 0) return;
+            // Иначе, добавляем новую строку в таблицу Monitorings
             var monitor = new Monitoring()
             {
                 MonitoringType = SelectType,
@@ -49,7 +51,7 @@ namespace _DemoViewModel
         }
 
 
-        #region Single
+        #region Обработка введенного текста в простые поля
 
 
         private DateTime? _date;
@@ -82,7 +84,7 @@ namespace _DemoViewModel
 
         #endregion
 
-        #region Combos
+        #region Выборка типа мониторинга и вредного вещества, получение их ID
         public ObservableCollection<MonitoringType> Types { get; set; }
         public ObservableCollection<HarmSubstance> Harms { get; set; }
 

@@ -18,6 +18,7 @@ namespace _DemoViewModel
             StartBiryukov = new Command<string>(OuterHandler.Starter);
         }
 
+        // Команды для открытия программных модулей, привязка к MainWindow
         public Command<string> StartGloba { get; }
         public Command<string> StartBerezina { get; }
         public Command<string> StartSafronov { get; }

@@ -64,8 +64,7 @@
                     <ImageBrush ImageSource="Images\create.png"/>
                 </Button.Background>
             </Button>
-            <TextBlock Style="{StaticResource TextBlock}"
-                       Text="Добавить" FontSize="20"/>
+            <TextBlock Style="{StaticResource TextBlock}" Text="Добавить" FontSize="20"/>
         </StackPanel>
     </Grid>
 </Window>
