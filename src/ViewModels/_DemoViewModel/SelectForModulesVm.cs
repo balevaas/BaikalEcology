@@ -4,9 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Data.SqlClient;
 using ViewModelBase;
 
 namespace _DemoViewModel
@@ -14,28 +16,44 @@ namespace _DemoViewModel
     public class SelectForModulesVm : ViewModel
     {
         private readonly DataContext _model;
+        SqlConnection connection;
         public SelectForModulesVm(DataContext model) 
         {
-            model = _model;
-            //WeatherData = new(_model.)
-            PollutionData = new(_model.PollutionFields.Include(m => m.LinkFile).Select(m =>
+            _model = model;
+
+            connection = (SqlConnection)_model.Database.GetDbConnection();
+
+            PollutionData = new(_model.PollutionFields
+                .Select(m =>
                 new PollutionDto()
                 {
+                    Id = m.ID,
                     LinkFile = m.LinkFile
                 }));
+            
+
         }
         public ObservableCollection<WeatherDataDto> WeatherData { private get; set; }
-        public ObservableCollection<PollutionDto> PollutionData { private get; set;}
-        /*Monitorings = new(_model.Monitorings.Include(m => m.MonitoringType).Include(m => m.Substance).Select(m =>
-                new MonitoringDto()
-                {
-                    Id = m.ID,
-                    MonitoringType = m.MonitoringType.ToString(),
-                    Date = m.Date,
-                    PointName = m.PointName,
-                    PostName = m.PostName,
-                    HarmName = m.Substance.ToString(),
-                    Quantity = m.Quantity
-                }));*/
+        public ObservableCollection<PollutionDto> PollutionData {  get; set;}
+
+      
+        public object SelectWeatherData(DateTime date)
+        {
+            if(connection.State != ConnectionState.Open) 
+                connection.Open();
+            var command = new SqlCommand("Select * from WeatherData Where Date = @Date", connection);
+            command.Parameters.Add(new SqlParameter
+            {
+                ParameterName = "@Date",
+                Value = date
+            });
+           
+           var read = command.ExecuteReader();
+           read.Read();
+           var result = read.GetValue(10000000);
+           connection.Close();
+
+           return result;
+        }
     }
 }

@@ -13,6 +13,5 @@ namespace BaseData.DataProviders.EntityFramework.Contexts
         public DbSet<MonitoringType> MonitoringTypes { get; set; } = null!;
         public DbSet<PollutionField> PollutionFields { get; set; } = null!;
         public DbSet<SoftModule> SoftModules { get; set; } = null!;
-
     }
 }

@@ -10,7 +10,6 @@ public static class Strings
         Sqlite = "Sqlite",
         SqlExpress = "SqlExpress",
         Globa = "Globa",
-        Slyusar = "Slyusar",
         Pinigin = "Pinigin";
 
     /// <summary>
