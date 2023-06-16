@@ -27,8 +27,6 @@
                   SelectedItem="{Binding SelectedItem, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}">
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
-                    <GridViewColumn x:Name="Id" DisplayMemberBinding="{Binding Id}"
-                                    Header="Номер" Width="Auto"/>
                     <GridViewColumn x:Name="Type" DisplayMemberBinding="{Binding MonitoringType}"
                                     Header="Тип мониторинга" Width="Auto"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Date, StringFormat=d}" 

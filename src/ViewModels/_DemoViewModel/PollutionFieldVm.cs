@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.IO;
 using System.Linq;
 using BaseData.DataProviders.EntityFramework.Contexts;
 using BaseData.Entities;
-using Microsoft.EntityFrameworkCore;
 using ViewModelBase;
-using ViewModelBase.Commands.AsyncCommands;
 using ViewModelBase.Commands.QuickCommands;
 
 namespace _DemoViewModel
